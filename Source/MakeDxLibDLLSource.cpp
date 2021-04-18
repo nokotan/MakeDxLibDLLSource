@@ -2,10 +2,25 @@
 
 #include <stdio.h>
 #include "TextAnalyse.h"
-#include <windows.h>
 #include <string.h>
-#include <malloc.h>
-#include <varargs.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
+#ifndef _MSC_VER
+
+#	define TRUE (1)
+#	define FALSE (1)
+
+typedef char TCHAR;
+
+inline void _itoa(int number, char* buffer, size_t base)
+{
+	::sprintf(buffer, "%d", number);
+}
+
+#else
+#include <windows.h>
+#endif
 
 // 文字列読み込み用クラスオブジェクト
 TextAnalyse dhtxt, /* dfhtxt, dxtxt, */ ttxt;
@@ -200,7 +215,7 @@ void	fprintf4( FILE *fp1, FILE *fp2, FILE *fp3, FILE *fp4, const char *FormatStr
 void	OutputDefineStr( FILE *cs, FILE *csW ) ;										// 定数定義を出力する
 void	OutputStructStr( FILE *cs, FILE *csW ) ;										// 構造体定義を出力する
 void	OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW ) ;	// ベタ出力の関数定義を出力する
-void	OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW ) ;		// 関数定義を出力する
+void	OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW, FILE *monoDef ) ;		// 関数定義を出力する
 void	OutputCSFunctionDefine( FILE *cs, FILE *csW, const char *FuncName, const char *CSRet, const char *CSParamDefine, bool Unsafe = false );	// 手動関数定義の出力を楽にする関数
 void	OutputCSFunctionCode( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 );	// 手動関数コードの出力を楽にする関数
 void	OutputCSFunctionCode2( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 );	// 手動関数コードの出力を楽にする関数
@@ -2263,7 +2278,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 }
 
 // 関数定義を出力する
-void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW )
+void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW, FILE* monoDef )
 {
 	char Str[256], Str2[2024 * 10], Str3[256], DllFuncName[ 256 ] ;
 	char *start;
@@ -2469,7 +2484,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 		{
 			const char *CallType = Func.IsVaList ? "Cdecl" : "StdCall";
 
-			fprintf(  cs,      "\t\t[DllImport(\"__Internal\", EntryPoint=\"%s\", CallingConvention=CallingConvention.%s)]\n", DllFuncName, CallType );
+			fprintf(  cs,      "\t\t[DllImport(\"DxLib\", EntryPoint=\"%s\", CallingConvention=CallingConvention.%s)]\n", DllFuncName, CallType );
 			fprintf2( cs, csW, "\t\textern %sstatic %s %s_%s( ", unsafe ? "unsafe " : "", Func.CSType, DllFuncName, "x86" );
 
 			// 引数部分を出力
@@ -2914,6 +2929,7 @@ CPPOUTONLY:
 			fprintf4( def, defW, def64, def64W, "\t%s\n", Str2 ) ;
 			fprintf2( hd, hdW, "%s %s( ", calltype, Str2 ) ;
 			fprintf2( sc, scW, "%s %s( ", calltype, Str2 ) ;
+			fprintf( monoDef, "\t{ \"DX::%s\", %s },\n", Func.Name, Str2 );
 		}
 
 		// 引数の出力
@@ -3116,7 +3132,7 @@ CPPOUTONLY:
 // 手動関数定義の出力を楽にする関数
 void OutputCSFunctionDefine( FILE *cs, FILE *csW, const char *FuncName, const char *CSRet, const char *CSParamDefine, bool Unsafe )
 {
-	fprintf(  cs,      "\t\t[DllImport(\"__Internal\",     EntryPoint=\"%s\")]\n",                           FuncName );
+	fprintf(  cs,      "\t\t[DllImport(\"DxLib\",     EntryPoint=\"%s\")]\n",                           FuncName );
 	fprintf2( cs, csW, "\t\textern %sstatic %s %s_x86%s;\n", Unsafe ? "unsafe " : "", CSRet, FuncName, CSParamDefine );
 }
 
@@ -3135,23 +3151,24 @@ void OutputCSFunctionCode2( FILE *cs, FILE *csW, const char *FuncCode1, const ch
 }
 
 // main関数
-void main( int argc, char **argv )
+int main( int argc, char **argv )
 {
 	FILE *hd,  *sc,  *cs,  *def,  *def64;
 	FILE *hdW, *scW, *csW, *defW, *def64W;
+	FILE *monoDef;
 	
 	// パラメータが 3 つ無かったらヘルプを出力して終了
 	if( argc != 2 )
 	{
 		printf( "MakeDxLibDLLSource.exe DxLibHeaderPath DxFunctionWinHeaderPath DxDirectXHeaderPath\n" );
-		return;
+		return 1;
 	}
 
 	// DxLib.h の読み込み
 	if( dhtxt.load( argv[1] ) == false )
 	{
 		printf( "DxLib.h のオープンに失敗しました\n" ) ;
-		return;
+		return 1;
 	}
 
 	// 意味のある区切りにスペースが入った文字列の作成
@@ -3168,6 +3185,7 @@ void main( int argc, char **argv )
 	defW   = fopen( "DxDLLW.def", "wt" ) ;
 	def64  = fopen( "DxDLLx64.def", "wt" ) ;
 	def64W = fopen( "DxDLLWx64.def", "wt" ) ;
+	monoDef = fopen("DxBindings.cpp", "wt") ;
 
 
 	// 先頭部分の出力
@@ -3206,6 +3224,14 @@ void main( int argc, char **argv )
 	fprintf2( cs, csW, "\tpublic static class DX\n" );
 	fprintf2( cs, csW, "\t{\n" );
 
+	fprintf( monoDef, "#include \"DxDLL.h\"\n");
+	fprintf( monoDef, "#include \"DxDLL.h\"\n");
+	fprintf( monoDef, "#include \"config.h\"\n");
+	fprintf( monoDef, "#include \"mono/utils/mono-dl.h\"\n");
+	fprintf( monoDef, "#include \"mono/utils/mono-embed.h\"\n");
+	fprintf( monoDef, "\n");
+	fprintf( monoDef, "MonoDlMapping dxlibMappings[] = \n");
+
 	// 定数定義を C# のファイルに出力する
 	OutputDefineStr( cs, csW ) ;
 
@@ -3213,12 +3239,18 @@ void main( int argc, char **argv )
 	OutputStructStr( cs, csW ) ;
 
 	// 関数部分を出力する
-	OutputFunctionStr( cs, csW, sc, scW, def, defW, def64, def64W, hd, hdW ) ;
+	OutputFunctionStr( cs, csW, sc, scW, def, defW, def64, def64W, hd, hdW, monoDef ) ;
 
 	// 終端部分を出力
 	fprintf2( hd, hdW, "}\n" );
 	fprintf2( cs, csW, "\t}\n" );
 	fprintf2( cs, csW, "}\n" );
+
+	fprintf( monoDef, "}\n");
+	fprintf( monoDef, "\n");
+	fprintf( monoDef, "void registerDxLibLibraryMappings() {\n");
+	fprintf( monoDef, "\tmono_dl_register_library (\"DxLib\", dxlibMappings);\n");
+	fprintf( monoDef, "}\n");
 
 	// ファイルを閉じる
 	fclose( hd );
@@ -3231,9 +3263,12 @@ void main( int argc, char **argv )
 	fclose( defW ) ;
 	fclose( def64 ) ;
 	fclose( def64W ) ;
+	fclose( monoDef ) ;
 
 	// DxLib.h の解放
 	dhtxt.release() ;
+
+	return 0;
 }
 
 
