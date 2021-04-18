@@ -6,5 +6,8 @@
 /Source/DxDLL.*
 
 # Visual Studio
+.vs
 bin
 obj
+Debug
+Release
