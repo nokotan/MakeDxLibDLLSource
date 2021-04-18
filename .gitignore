@@ -1,0 +1,10 @@
+# Generated Files
+/*.dll
+/*.cs
+/UnicodeVer/*.dll
+/UnicodeVer/*.cs
+/Source/DxDLL.*
+
+# Visual Studio
+bin
+obj
