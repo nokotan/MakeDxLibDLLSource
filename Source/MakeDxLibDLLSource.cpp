@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include "TextAnalyse.h"
 #include <windows.h>
@@ -6,7 +8,7 @@
 #include <varargs.h>
 
 // 文字列読み込み用クラスオブジェクト
-TextAnalyse dhtxt, dfhtxt, dxtxt, ttxt;
+TextAnalyse dhtxt, /* dfhtxt, dxtxt, */ ttxt;
 
 // 関数名情報
 struct FUNCTIONNAME
@@ -111,7 +113,7 @@ TYPEINFO TypeInfoDim[] =
 } ;
 
 // DLL にのみ出力して C# 用には出力しない関数のリスト
-char *DLLOnlyFunction[] =
+const char *DLLOnlyFunction[] =
 {
 	"ClearDrawScreen", "ClearDrawScreenZBuffer",
 	"GetTexPixelFormat", "GetTexColorData", "LoadGraphToResource", "GetWindowSizeChangeEnableFlag",
@@ -136,7 +138,7 @@ char *DLLOnlyFunction[] =
 };
 
 // 一切出力しない関数のリスト
-char *SkipFunction[] =
+const char *SkipFunction[] =
 {
 	"GraphFilter", "GraphFilterBlt", "GraphFilterRectBlt",
 	"GraphBlend", "GraphBlendBlt", "GraphBlendRectBlt",
@@ -168,7 +170,7 @@ char *SkipFunction[] =
 } ;
 
 // 無視するマクロのリスト
-char *SkipDefine[] =
+const char *SkipDefine[] =
 {
 	"STTELL(", "STSEEK(", "STREAD(", "STWRITE(", "STEOF(", "STCLOSE(",
 	"STREAM_SEEKTYPE_SET", "STREAM_SEEKTYPE_END", "STREAM_SEEKTYPE_CUR",
@@ -199,9 +201,9 @@ void	OutputDefineStr( FILE *cs, FILE *csW ) ;										// 定数定義を出力する
 void	OutputStructStr( FILE *cs, FILE *csW ) ;										// 構造体定義を出力する
 void	OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW ) ;	// ベタ出力の関数定義を出力する
 void	OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW ) ;		// 関数定義を出力する
-void	OutputCSFunctionDefine( FILE *cs, FILE *csW, char *FuncName, char *CSRet, char *CSParamDefine, bool Unsafe = false );	// 手動関数定義の出力を楽にする関数
-void	OutputCSFunctionCode( FILE *cs, FILE *csW, char *FuncCode1, char *FuncCode2 );	// 手動関数コードの出力を楽にする関数
-void	OutputCSFunctionCode2( FILE *cs, FILE *csW, char *FuncCode1, char *FuncCode2 );	// 手動関数コードの出力を楽にする関数
+void	OutputCSFunctionDefine( FILE *cs, FILE *csW, const char *FuncName, const char *CSRet, const char *CSParamDefine, bool Unsafe = false );	// 手動関数定義の出力を楽にする関数
+void	OutputCSFunctionCode( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 );	// 手動関数コードの出力を楽にする関数
+void	OutputCSFunctionCode2( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 );	// 手動関数コードの出力を楽にする関数
 
 
 // 関数名を追加する( 戻り値：同じ名前の関数の数 )
@@ -388,63 +390,6 @@ bool CheckSkipStruct( char *source )
 	if( strstr( source, "STREAMDATASHRED" ) ) return true;
 	if( strstr( source, "MV1_REF_POLYGONLIST" ) ) return true;
 
-	return false;
-}
-
-// 指定のDirectXマクロの数値文字列を取得する( true:成功  false:失敗 )
-bool GetDirectXDefineStr( char *search, char *buffer )
-{
-	char str[256], str2[256], searchstr[256];
-
-	// 最初に検索する文字列をセット
-	strcpy( searchstr, search );
-
-	for(;;)
-	{
-		// DxDirectX.h の DX_NOUSE_DIRECTX_SDK_FILE が記述されているところまで移動する
-		dxtxt.reset();
-		dxtxt.search( "DX_NOUSE_DIRECTX_SDK_FILE" );
-
-		// 検索文字列を検索する
-		if( dxtxt.search( searchstr ) )
-		{
-			// 文字列を取得する
-			dxtxt.getstr( str );
-
-			// enum の場合は = の後の文字列を取得する
-			if( strcmp( str, "=" ) == 0 )
-			{
-				dxtxt.getstr( str );
-			}
-
-			// enum の場合は末端に , があったりするので、識別子や数値に使用できる文字だけの文字列を取得する
-			GetNumberOrIdentifier( str, str2 );
-
-			// 先頭文字が数字ではなかった場合は別のマクロと判断する
-			if( str2[0] < '0' || str2[0] > '9' )
-			{
-				// 検索する文字列を変更してさらに検索を行う
-				strcpy( searchstr, str2 );
-				continue;
-			}
-
-			// 16進数の可能性を考えて10進数に変換する処理を行う
-			Conv16To10( str2, str );
-
-			// 数値文字列を保存する
-			strcpy( buffer, str );
-
-			// 成功
-			return true;
-		}
-		else
-		{
-			// 無かったらエラー
-			return false;
-		}
-	}
-
-	// ここに来ることはないけど一応エラー
 	return false;
 }
 
@@ -786,7 +731,7 @@ void Conv16To10( char *src, char *dest )
 		}
 
 		// 10進数の文字列を得る
-		itoa( total, dest, 10 );
+		_itoa( total, dest, 10 );
 	}
 	else
 	{
@@ -849,13 +794,6 @@ void CreateTokenStr( void )
 	for(;;)
 	{
 		if( dhtxt.getstr( str1 ) == false ) break;
-		if( strcmp( str1, "DX_FUNCTION_END" ) == 0 ) break;
-		pos = ConvTokenStr( pos, dat.Function, str1 );
-	}
-	dfhtxt.search( "DX_FUNCTION_START" );
-	for(;;)
-	{
-		if( dfhtxt.getstr( str1 ) == false ) break;
 		if( strcmp( str1, "DX_FUNCTION_END" ) == 0 ) break;
 		pos = ConvTokenStr( pos, dat.Function, str1 );
 	}
@@ -942,16 +880,6 @@ void OutputDefineStr( FILE *cs, FILE *csW )
 				GetNumberOrIdentifier( Str, Str2 );
 				Conv16To10( Str2, Str );
 				fprintf2( cs, csW, "%s;\n", Str );
-			}
-			else
-			// それ以外の場合は DirectX の定義をそのまま使用しているので DxDirectX.h から定数を取得して出力
-			{
-				if( GetDirectXDefineStr( Str, Str2 ) == false )
-				{
-					printf( "%s error\n", Str );
-					for(;;){}
-				}
-				fprintf2( cs, csW, "%s;\n", Str2 );
 			}
 		}
 	}
@@ -2537,13 +2465,12 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 		fprintf4( def, defW, def64, def64W, "\t%s\n", DllFuncName ) ;
 
 		// C# 用の関数宣言出力
-		for( l = 0; l < 2; l++ )
+		for( l = 0; l < 1; l++ )
 		{
 			const char *CallType = Func.IsVaList ? "Cdecl" : "StdCall";
 
-			fprintf(  cs,      "\t\t[DllImport(\"DxLib%s.dll\", EntryPoint=\"%s\", CallingConvention=CallingConvention.%s)]\n", l == 0 ? "" : "_x64", DllFuncName, CallType );
-			fprintf(  csW,     "\t\t[DllImport(\"DxLibW%s.dll\", EntryPoint=\"%s\", CallingConvention=CallingConvention.%s, CharSet=CharSet.Unicode)]\n", l == 0 ? "" : "_x64", DllFuncName, CallType );
-			fprintf2( cs, csW, "\t\textern %sstatic %s %s_%s( ", unsafe ? "unsafe " : "", Func.CSType, DllFuncName, l == 0 ? "x86" : "x64" );
+			fprintf(  cs,      "\t\t[DllImport(\"__Internal\", EntryPoint=\"%s\", CallingConvention=CallingConvention.%s)]\n", DllFuncName, CallType );
+			fprintf2( cs, csW, "\t\textern %sstatic %s %s_%s( ", unsafe ? "unsafe " : "", Func.CSType, DllFuncName, "x86" );
 
 			// 引数部分を出力
 			par = Func.Parameter;
@@ -2643,7 +2570,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 					k ++ ;
 				}
 
-				for( l = 0; l < 2; l++ )
+				for( l = 0; l < 1; l++ )
 				{
 					if( l == 0 )
 					{
@@ -3187,42 +3114,24 @@ CPPOUTONLY:
 }
 
 // 手動関数定義の出力を楽にする関数
-void OutputCSFunctionDefine( FILE *cs, FILE *csW, char *FuncName, char *CSRet, char *CSParamDefine, bool Unsafe )
+void OutputCSFunctionDefine( FILE *cs, FILE *csW, const char *FuncName, const char *CSRet, const char *CSParamDefine, bool Unsafe )
 {
-	fprintf(  cs,      "\t\t[DllImport(\"DxLib.dll\",     EntryPoint=\"%s\")]\n",                           FuncName );
-	fprintf(  csW,     "\t\t[DllImport(\"DxLibW.dll\",     EntryPoint=\"%s\", CharSet=CharSet.Unicode)]\n", FuncName );
+	fprintf(  cs,      "\t\t[DllImport(\"__Internal\",     EntryPoint=\"%s\")]\n",                           FuncName );
 	fprintf2( cs, csW, "\t\textern %sstatic %s %s_x86%s;\n", Unsafe ? "unsafe " : "", CSRet, FuncName, CSParamDefine );
-	fprintf(  cs,      "\t\t[DllImport(\"DxLib_x64.dll\", EntryPoint=\"%s\")]\n",                           FuncName );
-	fprintf(  csW,     "\t\t[DllImport(\"DxLibW_x64.dll\", EntryPoint=\"%s\", CharSet=CharSet.Unicode)]\n", FuncName );
-	fprintf2( cs, csW, "\t\textern %sstatic %s %s_x64%s;\n", Unsafe ? "unsafe " : "", CSRet, FuncName, CSParamDefine );
 }
 
 // 手動関数コードの出力を楽にする関数
-void OutputCSFunctionCode( FILE *cs, FILE *csW, char *FuncCode1, char *FuncCode2 )
+void OutputCSFunctionCode( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 )
 {
 	fprintf2( cs, csW, "\t\t{\n" );
-	fprintf2( cs, csW, "\t\t\tif( System.IntPtr.Size == 4 )\n" );
-	fprintf2( cs, csW, "\t\t\t{\n" );
-	fprintf2( cs, csW, "\t\t\t\t%s_x86%s;\n", FuncCode1, FuncCode2 );
-	fprintf2( cs, csW, "\t\t\t}\n" );
-	fprintf2( cs, csW, "\t\t\telse\n" );
-	fprintf2( cs, csW, "\t\t\t{\n" );
-	fprintf2( cs, csW, "\t\t\t\t%s_x64%s;\n", FuncCode1, FuncCode2 );
-	fprintf2( cs, csW, "\t\t\t}\n" );
+	fprintf2( cs, csW, "\t\t\t%s_x86%s;\n", FuncCode1, FuncCode2 );
 	fprintf2( cs, csW, "\t\t}\n" );
 }
 
 // 手動関数コードの出力を楽にする関数
-void OutputCSFunctionCode2( FILE *cs, FILE *csW, char *FuncCode1, char *FuncCode2 )
+void OutputCSFunctionCode2( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 )
 {
-	fprintf2( cs, csW, "\t\t\tif( System.IntPtr.Size == 4 )\n" );
-	fprintf2( cs, csW, "\t\t\t{\n" );
-	fprintf2( cs, csW, "\t\t\t\t%s_x86%s;\n", FuncCode1, FuncCode2 );
-	fprintf2( cs, csW, "\t\t\t}\n" );
-	fprintf2( cs, csW, "\t\t\telse\n" );
-	fprintf2( cs, csW, "\t\t\t{\n" );
-	fprintf2( cs, csW, "\t\t\t\t%s_x64%s;\n", FuncCode1, FuncCode2 );
-	fprintf2( cs, csW, "\t\t\t}\n" );
+	fprintf2( cs, csW, "\t\t\t%s_x86%s;\n", FuncCode1, FuncCode2 );
 }
 
 // main関数
@@ -3232,7 +3141,7 @@ void main( int argc, char **argv )
 	FILE *hdW, *scW, *csW, *defW, *def64W;
 	
 	// パラメータが 3 つ無かったらヘルプを出力して終了
-	if( argc != 4 )
+	if( argc != 2 )
 	{
 		printf( "MakeDxLibDLLSource.exe DxLibHeaderPath DxFunctionWinHeaderPath DxDirectXHeaderPath\n" );
 		return;
@@ -3242,20 +3151,6 @@ void main( int argc, char **argv )
 	if( dhtxt.load( argv[1] ) == false )
 	{
 		printf( "DxLib.h のオープンに失敗しました\n" ) ;
-		return;
-	}
-
-	// DxFunctionWin.h の読み込み
-	if( dfhtxt.load( argv[2] ) == false )
-	{
-		printf( "DxLib.h のオープンに失敗しました\n" ) ;
-		return;
-	}
-
-	// DxDirectX.h の読み込み
-	if( dxtxt.load( argv[3] ) == false )
-	{
-		printf( "DxDirectXb.h のオープンに失敗しました\n" ) ;
 		return;
 	}
 
@@ -3339,9 +3234,6 @@ void main( int argc, char **argv )
 
 	// DxLib.h の解放
 	dhtxt.release() ;
-
-	// DxDirectX.h の解放
-	dxtxt.release() ;
 }
 
 
