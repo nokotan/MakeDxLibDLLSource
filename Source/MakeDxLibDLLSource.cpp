@@ -181,6 +181,134 @@ const char *SkipFunction[] =
 //	"DrawRotaFormatStringToZBuffer", "DrawRotaFormatStringToHandleToZBuffer",
 //	"DrawModiFormatStringToZBuffer", "DrawModiFormatStringToHandleToZBuffer",
 	"SetKeyInputStringColor", "Paint",
+	"SetUseASyncLoadFlag", "GetUseASyncLoadFlag",
+	"GetASyncLoadNum", "SetASyncLoadThreadNum",
+	"ProcessNetMessage", "GetHostIPbyName",
+	"GetHostIPbyNameWithStrLen", "GetHostIPbyName_IPv6",
+	"GetHostIPbyName_IPv6WithStrLen", "ConnectNetWork",
+	"ConnectNetWork_IPv6", "ConnectNetWork_ASync",
+	"ConnectNetWork_IPv6_ASync", "PreparationListenNetWork",
+	"PreparationListenNetWork_IPv6", "CheckHandleASyncLoad",
+	"GetHandleASyncLoadResult", "SetASyncLoadFinishDeleteFlag",
+	"StopListenNetWork", "CloseNetWork",
+	"GetNetWorkAcceptState", "GetNetWorkDataLength",
+	"GetNetWorkSendDataLength", "GetNewAcceptNetWork",
+	"GetLostNetWork", "GetNetWorkIP",
+	"GetNetWorkIP_IPv6", "GetMyIPAddress",
+	"GetMyIPAddress_IPv6", "SetConnectTimeOutWait",
+	"SetUseDXNetWorkProtocol", "GetUseDXNetWorkProtocol",
+	"SetUseDXProtocol", "GetUseDXProtocol",
+	"SetNetWorkCloseAfterLostFlag", "GetNetWorkCloseAfterLostFlag",
+	"NetWorkRecv", "NetWorkRecvToPeek",
+	"NetWorkRecvBufferClear", "NetWorkSend",
+	"MakeUDPSocket", "MakeUDPSocket_IPv6",
+	"DeleteUDPSocket", "NetWorkSendUDP",
+	"NetWorkSendUDP_IPv6", "NetWorkRecvUDP",
+	"NetWorkRecvUDP_IPv6", "CheckNetWorkRecvUDP",
+	"StockInputChar", "ClearInputCharBuf",
+	"GetInputChar", "GetInputCharWait",
+	"GetOneChar", "GetOneCharWait",
+	"GetCtrlCodeCmp", "DrawIMEInputString",
+	"SetUseIMEFlag", "GetUseIMEFlag",
+	"SetInputStringMaxLengthIMESync", "SetIMEInputStringMaxLength",
+	"InputStringToCustom", "KeyInputString",
+	"KeyInputSingleCharString", "KeyInputNumber",
+	"GetIMEInputModeStr", "GetIMEInputData",
+	"SetKeyInputStringColor2", "ResetKeyInputStringColor2",
+	"SetKeyInputStringFont", "SetKeyInputStringEndCharaMode",
+	"DrawKeyInputModeString",
+	"InitKeyInput", "MakeKeyInput",
+	"DeleteKeyInput", "SetActiveKeyInput",
+	"GetActiveKeyInput", "CheckKeyInput",
+	"ReStartKeyInput", "ProcessActKeyInput",
+	"DrawKeyInputString", "SetKeyInputDrawArea",
+	"SetKeyInputSelectArea", "GetKeyInputSelectArea",
+	"SetKeyInputDrawStartPos", "GetKeyInputDrawStartPos",
+	"SetKeyInputCursorBrinkTime", "SetKeyInputCursorBrinkFlag",
+	"SetKeyInputString", "SetKeyInputStringWithStrLen",
+	"SetKeyInputNumber", "SetKeyInputNumberToFloat",
+	"GetKeyInputString", "GetKeyInputNumber",
+	"GetKeyInputNumberToFloat", "SetKeyInputCursorPosition",
+	"GetKeyInputCursorPosition", "CreateBlendGraphFromSoftImage",
+	"CreateGraphFromSoftImage", "CreateGraphFromRectSoftImage",
+	"ReCreateGraphFromSoftImage", "CreateDivGraphFromSoftImage",
+	"ReCreateGraphFromRectSoftImage", "CreateDivGraphFFromSoftImage",
+	"ReCreateDivGraphFromSoftImage", "ReCreateDivGraphFFromSoftImage",
+	"PlayMovie", "PlayMovieWithStrLen",
+	"GetMovieImageSize_File", "GetMovieImageSize_File_WithStrLen",
+	"GetMovieImageSize_Mem", "OpenMovieToGraph",
+	"OpenMovieToGraphWithStrLen", "PlayMovieToGraph",
+	"PauseMovieToGraph", "AddMovieFrameToGraph",
+	"SeekMovieToGraph", "SetPlaySpeedRateMovieToGraph",
+	"GetMovieStateToGraph", "SetMovieVolumeToGraph",
+	"ChangeMovieVolumeToGraph", "GetMovieBaseImageToGraph",
+	"GetMovieTotalFrameToGraph", "TellMovieToGraph",
+	"TellMovieToGraphToFrame", "SeekMovieToGraphToFrame",
+	"GetOneFrameTimeMovieToGraph", "GetLastUpdateTimeMovieToGraph",
+	"SetMovieRightImageAlphaFlag", "SetMovieColorA8R8G8B8Flag",
+	"SetMovieUseYUVFormatSurfaceFlag", "ReadJpegExif",
+	"ReadJpegExifWithStrLen", "SaveBaseImageToJpeg",
+	"SaveBaseImageToJpegWithStrLen",
+	"InitSoftImage", "LoadSoftImage",
+	"LoadSoftImageWithStrLen", "LoadARGB8ColorSoftImage",
+	"LoadARGB8ColorSoftImageWithStrLen", "LoadXRGB8ColorSoftImage",
+	"LoadXRGB8ColorSoftImageWithStrLen", "LoadSoftImageToMem",
+	"LoadARGB8ColorSoftImageToMem", "LoadXRGB8ColorSoftImageToMem",
+	"MakeSoftImage", "MakeARGBF32ColorSoftImage",
+	"MakeARGBF16ColorSoftImage", "MakeARGB8ColorSoftImage",
+ 	"MakeXRGB8ColorSoftImage",
+	"MakeARGB4ColorSoftImage", "MakeA1R5G5B5ColorSoftImage",
+	"MakeX1R5G5B5ColorSoftImage", "MakeR5G5B5A1ColorSoftImage",
+	"MakeR5G6B5ColorSoftImage", "MakeRGB8ColorSoftImage",
+	"MakePAL8ColorSoftImage", "DeleteSoftImage",
+	"GetSoftImageSize", "CheckPaletteSoftImage",
+	"CheckAlphaSoftImage", "CheckPixelAlphaSoftImage",
+	"GetDrawScreenSoftImage", "GetDrawScreenSoftImageDestPos",
+	"FillSoftImage", "ClearRectSoftImage",
+	"GetPaletteSoftImage", "SetPaletteSoftImage",
+	"DrawPixelPalCodeSoftImage", "GetPixelPalCodeSoftImage",
+	"GetImageAddressSoftImage", "GetPitchSoftImage",
+	"DrawPixelSoftImage", "DrawPixelSoftImageF",
+	"DrawPixelSoftImage_Unsafe_XRGB8", "GetPixelSoftImage",
+	"GetPixelSoftImageF", "GetPixelSoftImage_Unsafe_XRGB8",
+	"DrawPixelSoftImage_Unsafe_ARGB8", "GetPixelSoftImage_Unsafe_ARGB8",
+	"DrawLineSoftImage", "DrawCircleSoftImage",
+	"BltSoftImage", "BltSoftImageWithTransColor",
+	"BltSoftImageWithAlphaBlend", "ReverseSoftImageH",
+	"ReverseSoftImageV", "ReverseSoftImage",
+	"BltStringSoftImage", "BltStringSoftImageWithStrLen",
+	"BltStringSoftImageToHandle", "BltStringSoftImageToHandleWithStrLen",
+	"DrawSoftImage", "SaveSoftImageToBmp",
+	"SaveSoftImageToBmpWithStrLen", "SaveSoftImageToDds",
+	"SaveSoftImageToDdsWithStrLen", "SaveSoftImageToPng",
+	"SaveSoftImageToPngWithStrLen", "SaveSoftImageToJpeg",
+	"SaveSoftImageToJpegWithStrLen", "Live2D_SetCubism4CoreDLLPath",
+	"Live2D_SetCubism4CoreDLLPathWithStrLen", "Live2D_SetCubism3CoreDLLPath",
+	"Live2D_SetCubism3CoreDLLPathWithStrLen", "Live2D_RenderBegin",
+	"Live2D_RenderEnd", "Live2D_LoadModel",
+	"Live2D_LoadModelWithStrLen", "Live2D_DeleteModel",
+	"Live2D_InitModel", "Live2D_Model_Update",
+	"Live2D_Model_SetTranslate", "Live2D_Model_SetExtendRate",
+	"Live2D_Model_SetRotate", "Live2D_Model_Draw",
+	"Live2D_Model_StartMotion", "Live2D_Model_StartMotionWithStrLen",
+	"Live2D_Model_IsMotionFinished", "Live2D_Model_SetExpression",
+	"Live2D_Model_SetExpressionWithStrLen", "Live2D_Model_HitTest",
+	"Live2D_Model_HitTestWithStrLen", "Live2D_Model_GetParameterCount",
+	"Live2D_Model_GetParameterId", "Live2D_Model_GetParameterValue",
+	"Live2D_Model_GetParameterValueWithStrLen", "Live2D_Model_SetParameterValue",
+	"Live2D_Model_SetParameterValueWithStrLen", "Live2D_Model_GetHitAreasCount",
+	"Live2D_Model_GetHitAreaName", "Live2D_Model_GetPhysicsFileName",
+	"Live2D_Model_GetPoseFileName", "Live2D_Model_GetExpressionCount",
+	"Live2D_Model_GetExpressionName", "Live2D_Model_GetExpressionFileName",
+	"Live2D_Model_GetMotionGroupCount", "Live2D_Model_GetMotionGroupName",
+	"Live2D_Model_GetMotionCount", "Live2D_Model_GetMotionCountWithStrLen",
+	"Live2D_Model_GetMotionFileName", "Live2D_Model_GetMotionFileNameWithStrLen",
+	"Live2D_Model_GetMotionSoundFileName", "Live2D_Model_GetMotionSoundFileNameWithStrLen",
+	"Live2D_Model_GetMotionFadeInTimeValue", "Live2D_Model_GetMotionFadeInTimeValueWithStrLen",
+	"Live2D_Model_GetMotionFadeOutTimeValue", "Live2D_Model_GetMotionFadeOutTimeValueWithStrLen",
+	"Live2D_Model_GetUserDataFile", "Live2D_Model_GetEyeBlinkParameterCount",
+	"Live2D_Model_GetEyeBlinkParameterId", "Live2D_Model_GetLipSyncParameterCount",
+	"Live2D_Model_GetLipSyncParameterId",
 	NULL,
 } ;
 
@@ -1655,31 +1783,31 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( cs, csW, "\t\t}\n" );
 	fprintf2( cs, csW, "\t\t\n" );
 
-	OutputCSFunctionDefine( cs, csW, "dx_SetKeyInputStringColor", "int", "( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF, ulong  SelectStrBackColor, ulong  SelectStrColor, ulong  SelectStrEdgeColor)" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , 0 , 0 , 0 , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , 0 , 0 , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , 0 , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , IMESelectWinF , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF, ulong  SelectStrBackColor)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , IMESelectWinF , SelectStrBackColor , 0xffffffffffffffff , 0xffffffffffffffff )" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF, ulong  SelectStrBackColor, ulong  SelectStrColor)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , IMESelectWinF , SelectStrBackColor , SelectStrColor , 0xffffffffffffffff )" );
-	fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF, ulong  SelectStrBackColor, ulong  SelectStrColor, ulong  SelectStrEdgeColor)\n" );
-	OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , IMESelectWinF , SelectStrBackColor , SelectStrColor , SelectStrEdgeColor )" );
-	fprintf2( hd, hdW, "int  __stdcall dx_SetKeyInputStringColor( ULONGLONG  NmlStr, ULONGLONG  NmlCur, ULONGLONG  IMEStr, ULONGLONG  IMECur, ULONGLONG  IMELine, ULONGLONG  IMESelectStr, ULONGLONG  IMEModeStr, ULONGLONG  NmlStrE = 0, ULONGLONG  IMESelectStrE = 0, ULONGLONG  IMEModeStrE = 0, ULONGLONG  IMESelectWinE = 0xffffffffffffffff, ULONGLONG  IMESelectWinF = 0xffffffffffffffff, ULONGLONG  SelectStrBackColor = 0xffffffffffffffff, ULONGLONG  SelectStrColor = 0xffffffffffffffff, ULONGLONG  SelectStrEdgeColor = 0xffffffffffffffff);\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_SetKeyInputStringColor( ULONGLONG  NmlStr, ULONGLONG  NmlCur, ULONGLONG  IMEStr, ULONGLONG  IMECur, ULONGLONG  IMELine, ULONGLONG  IMESelectStr, ULONGLONG  IMEModeStr, ULONGLONG  NmlStrE, ULONGLONG  IMESelectStrE, ULONGLONG  IMEModeStrE, ULONGLONG  IMESelectWinE, ULONGLONG  IMESelectWinF, ULONGLONG  SelectStrBackColor, ULONGLONG  SelectStrColor, ULONGLONG  SelectStrEdgeColor)\n" );
-	fprintf2( sc, scW, "{\n" );
-	fprintf2( sc, scW, "	return SetKeyInputStringColor( NmlStr, NmlCur, IMEStr, IMECur, IMELine, IMESelectStr, IMEModeStr, NmlStrE, IMESelectStrE, IMEModeStrE, IMESelectWinE, IMESelectWinF, SelectStrBackColor, SelectStrColor, SelectStrEdgeColor);\n" );
-	fprintf2( sc, scW, "}\n" );
-	fprintf4( def, defW, def64, def64W, "\tdx_SetKeyInputStringColor\n" ) ;
+	// OutputCSFunctionDefine( cs, csW, "dx_SetKeyInputStringColor", "int", "( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF, ulong  SelectStrBackColor, ulong  SelectStrColor, ulong  SelectStrEdgeColor)" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , 0 , 0 , 0 , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , 0 , 0 , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , 0 , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , IMESelectWinF , 0xffffffffffffffff , 0xffffffffffffffff , 0xffffffffffffffff )" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF, ulong  SelectStrBackColor)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , IMESelectWinF , SelectStrBackColor , 0xffffffffffffffff , 0xffffffffffffffff )" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF, ulong  SelectStrBackColor, ulong  SelectStrColor)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , IMESelectWinF , SelectStrBackColor , SelectStrColor , 0xffffffffffffffff )" );
+	// fprintf2( cs, csW, "\t\tpublic static int  SetKeyInputStringColor( ulong  NmlStr, ulong  NmlCur, ulong  IMEStr, ulong  IMECur, ulong  IMELine, ulong  IMESelectStr, ulong  IMEModeStr, ulong  NmlStrE, ulong  IMESelectStrE, ulong  IMEModeStrE, ulong  IMESelectWinE, ulong  IMESelectWinF, ulong  SelectStrBackColor, ulong  SelectStrColor, ulong  SelectStrEdgeColor)\n" );
+	// OutputCSFunctionCode( cs, csW, "return dx_SetKeyInputStringColor", "( NmlStr , NmlCur , IMEStr , IMECur , IMELine , IMESelectStr , IMEModeStr , NmlStrE , IMESelectStrE , IMEModeStrE , IMESelectWinE , IMESelectWinF , SelectStrBackColor , SelectStrColor , SelectStrEdgeColor )" );
+	// fprintf2( hd, hdW, "int   dx_SetKeyInputStringColor( ULONGLONG  NmlStr, ULONGLONG  NmlCur, ULONGLONG  IMEStr, ULONGLONG  IMECur, ULONGLONG  IMELine, ULONGLONG  IMESelectStr, ULONGLONG  IMEModeStr, ULONGLONG  NmlStrE = 0, ULONGLONG  IMESelectStrE = 0, ULONGLONG  IMEModeStrE = 0, ULONGLONG  IMESelectWinE = 0xffffffffffffffff, ULONGLONG  IMESelectWinF = 0xffffffffffffffff, ULONGLONG  SelectStrBackColor = 0xffffffffffffffff, ULONGLONG  SelectStrColor = 0xffffffffffffffff, ULONGLONG  SelectStrEdgeColor = 0xffffffffffffffff);\n" );
+	// fprintf2( sc, scW, "int   dx_SetKeyInputStringColor( ULONGLONG  NmlStr, ULONGLONG  NmlCur, ULONGLONG  IMEStr, ULONGLONG  IMECur, ULONGLONG  IMELine, ULONGLONG  IMESelectStr, ULONGLONG  IMEModeStr, ULONGLONG  NmlStrE, ULONGLONG  IMESelectStrE, ULONGLONG  IMEModeStrE, ULONGLONG  IMESelectWinE, ULONGLONG  IMESelectWinF, ULONGLONG  SelectStrBackColor, ULONGLONG  SelectStrColor, ULONGLONG  SelectStrEdgeColor)\n" );
+	// fprintf2( sc, scW, "{\n" );
+	// fprintf2( sc, scW, "	return SetKeyInputStringColor( NmlStr, NmlCur, IMEStr, IMECur, IMELine, IMESelectStr, IMEModeStr, NmlStrE, IMESelectStrE, IMEModeStrE, IMESelectWinE, IMESelectWinF, SelectStrBackColor, SelectStrColor, SelectStrEdgeColor);\n" );
+	// fprintf2( sc, scW, "}\n" );
+	// fprintf4( def, defW, def64, def64W, "\tdx_SetKeyInputStringColor\n" ) ;
 
 	fprintf2( cs, csW, "\n\n" );
 
@@ -1688,8 +1816,8 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	OutputCSFunctionCode( cs, csW, "return dx_Paint", "( x , y , FillColor , 0xffffffffffffffffUL )" );
 	fprintf2( cs, csW, "\t\tpublic static int  Paint( int  x, int  y, uint  FillColor, ulong  BoundaryColor)\n" );
 	OutputCSFunctionCode( cs, csW, "return dx_Paint", "( x , y , FillColor , BoundaryColor )" );
-	fprintf2( hd, hdW, "int  __stdcall dx_Paint( int  x, int  y, unsigned int  FillColor, ULONGLONG  BoundaryColor = 0xffffffffffffffffUL);\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_Paint( int  x, int  y, unsigned int  FillColor, ULONGLONG  BoundaryColor)\n" );
+	fprintf2( hd, hdW, "int   dx_Paint( int  x, int  y, unsigned int  FillColor, ULONGLONG  BoundaryColor = 0xffffffffffffffffUL);\n" );
+	fprintf2( sc, scW, "int   dx_Paint( int  x, int  y, unsigned int  FillColor, ULONGLONG  BoundaryColor)\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return Paint( x, y, FillColor, BoundaryColor);\n" );
 	fprintf2( sc, scW, "}\n" );
@@ -1826,43 +1954,43 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	OutputCSFunctionCode( cs, csW, "return dx_GraphBlendRectBltS", "( SrcGrHandle, BlendGrHandle, DestGrHandle, SrcX1, SrcY1, SrcX2, SrcY2, BlendX, BlendY, DestX, DestY, BlendRatio, BlendType, Param0, 0, 0, 0, 0, 0)" );
 	fprintf2( cs, csW, "\t\tpublic static int  GraphBlendRectBlt( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int BlendX, int BlendY, int DestX, int DestY, int BlendRatio, int BlendType)\n" );
 	OutputCSFunctionCode( cs, csW, "return dx_GraphBlendRectBltS", "( SrcGrHandle, BlendGrHandle, DestGrHandle, SrcX1, SrcY1, SrcX2, SrcY2, BlendX, BlendY, DestX, DestY, BlendRatio, BlendType, 0, 0, 0, 0, 0, 0 )" );
-	fprintf2( hd, hdW, "int  __stdcall dx_MV1SetMaterialTypeParamAllS( int MHandle, float Param0, float Param1, float Param2, float Param3, float Param4, float Param5 ) ;\n" );
-	fprintf2( hd, hdW, "int  __stdcall dx_MV1SetMaterialTypeParamS( int MHandle, int MaterialIndex, float Param0, float Param1, float Param2, float Param3, float Param4, float Param5 ) ;\n" );
-	fprintf2( hd, hdW, "int  __stdcall dx_GraphFilterS( int GrHandle, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
-	fprintf2( hd, hdW, "int  __stdcall dx_GraphFilterBltS( int SrcGrHandle, int DestGrHandle, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
-	fprintf2( hd, hdW, "int  __stdcall dx_GraphFilterRectBltS( int SrcGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int DestX, int DestY, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
-	fprintf2( hd, hdW, "int  __stdcall dx_GraphBlendS( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
-	fprintf2( hd, hdW, "int  __stdcall dx_GraphBlendBltS( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
-	fprintf2( hd, hdW, "int  __stdcall dx_GraphBlendRectBltS( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int BlendX, int BlendY, int DestX, int DestY, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_MV1SetMaterialTypeParamAllS( int MHandle, float Param0, float Param1, float Param2, float Param3, float Param4, float Param5 )\n" );
+	fprintf2( hd, hdW, "int   dx_MV1SetMaterialTypeParamAllS( int MHandle, float Param0, float Param1, float Param2, float Param3, float Param4, float Param5 ) ;\n" );
+	fprintf2( hd, hdW, "int   dx_MV1SetMaterialTypeParamS( int MHandle, int MaterialIndex, float Param0, float Param1, float Param2, float Param3, float Param4, float Param5 ) ;\n" );
+	fprintf2( hd, hdW, "int   dx_GraphFilterS( int GrHandle, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
+	fprintf2( hd, hdW, "int   dx_GraphFilterBltS( int SrcGrHandle, int DestGrHandle, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
+	fprintf2( hd, hdW, "int   dx_GraphFilterRectBltS( int SrcGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int DestX, int DestY, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
+	fprintf2( hd, hdW, "int   dx_GraphBlendS( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
+	fprintf2( hd, hdW, "int   dx_GraphBlendBltS( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
+	fprintf2( hd, hdW, "int   dx_GraphBlendRectBltS( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int BlendX, int BlendY, int DestX, int DestY, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
+	fprintf2( sc, scW, "int   dx_MV1SetMaterialTypeParamAllS( int MHandle, float Param0, float Param1, float Param2, float Param3, float Param4, float Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return MV1SetMaterialTypeParamAll( MHandle, Param0, Param1, Param2, Param3, Param4, Param5 );\n" );
 	fprintf2( sc, scW, "}\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_MV1SetMaterialTypeParamS( int MHandle, int MaterialIndex, float Param0, float Param1, float Param2, float Param3, float Param4, float Param5 )\n" );
+	fprintf2( sc, scW, "int   dx_MV1SetMaterialTypeParamS( int MHandle, int MaterialIndex, float Param0, float Param1, float Param2, float Param3, float Param4, float Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return MV1SetMaterialTypeParam( MHandle, MaterialIndex, Param0, Param1, Param2, Param3, Param4, Param5 );\n" );
 	fprintf2( sc, scW, "}\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_GraphFilterS( int GrHandle, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
+	fprintf2( sc, scW, "int   dx_GraphFilterS( int GrHandle, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return GraphFilter( GrHandle, FilterType, Param0, Param1, Param2, Param3, Param4, Param5 );\n" );
 	fprintf2( sc, scW, "}\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_GraphFilterBltS( int SrcGrHandle, int DestGrHandle, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
+	fprintf2( sc, scW, "int   dx_GraphFilterBltS( int SrcGrHandle, int DestGrHandle, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return GraphFilterBlt( SrcGrHandle, DestGrHandle, FilterType, Param0, Param1, Param2, Param3, Param4, Param5 );\n" );
 	fprintf2( sc, scW, "}\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_GraphFilterRectBltS( int SrcGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int DestX, int DestY, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
+	fprintf2( sc, scW, "int   dx_GraphFilterRectBltS( int SrcGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int DestX, int DestY, int FilterType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return GraphFilterRectBlt( SrcGrHandle, DestGrHandle, SrcX1, SrcY1, SrcX2, SrcY2, DestX, DestY, FilterType, Param0, Param1, Param2, Param3, Param4, Param5 ) ;\n" );
 	fprintf2( sc, scW, "}\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_GraphBlendS( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
+	fprintf2( sc, scW, "int   dx_GraphBlendS( int GrHandle, int BlendGrHandle, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return GraphBlend( GrHandle, BlendGrHandle, BlendRatio, BlendType, Param0, Param1, Param2, Param3, Param4, Param5 ) ;\n" );
 	fprintf2( sc, scW, "}\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_GraphBlendBltS( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
+	fprintf2( sc, scW, "int   dx_GraphBlendBltS( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return GraphBlendBlt( SrcGrHandle, BlendGrHandle, DestGrHandle, BlendRatio, BlendType, Param0, Param1, Param2, Param3, Param4, Param5 ) ;\n" );
 	fprintf2( sc, scW, "}\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_GraphBlendRectBltS( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int BlendX, int BlendY, int DestX, int DestY, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
+	fprintf2( sc, scW, "int   dx_GraphBlendRectBltS( int SrcGrHandle, int BlendGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int BlendX, int BlendY, int DestX, int DestY, int BlendRatio, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return GraphBlendRectBlt( SrcGrHandle, BlendGrHandle, DestGrHandle, SrcX1, SrcY1, SrcX2, SrcY2, BlendX, BlendY, DestX, DestY, BlendRatio, BlendType, Param0, Param1, Param2, Param3, Param4, Param5 ) ;\n" );
 	fprintf2( sc, scW, "}\n" );
@@ -1892,15 +2020,15 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( cs, csW, "\t\tpublic static int  SetBlendGraphParam( int BlendGraph, int BlendType )\n" );
 	OutputCSFunctionCode( cs, csW, "return dx_SetBlendGraphParamS", "( BlendGraph, BlendType, 0, 0, 0, 0, 0, 0 )" );
 	fprintf2( cs, csW, "\n" );
-	fprintf2( hd, hdW, "int  __stdcall dx_SetBlendGraphParamS( int BlendGraph, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
-	fprintf2( sc, scW, "int  __stdcall dx_SetBlendGraphParamS( int BlendGraph, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
+	fprintf2( hd, hdW, "int   dx_SetBlendGraphParamS( int BlendGraph, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 ) ;\n" );
+	fprintf2( sc, scW, "int   dx_SetBlendGraphParamS( int BlendGraph, int BlendType, int Param0, int Param1, int Param2, int Param3, int Param4, int Param5 )\n" );
 	fprintf2( sc, scW, "{\n" );
 	fprintf2( sc, scW, "	return SetBlendGraphParam( BlendGraph, BlendType, Param0, Param1, Param2, Param3, Param4, Param5 );\n" );
 	fprintf2( sc, scW, "}\n" );
 	fprintf4( def, defW, def64, def64W, "\tdx_SetBlendGraphParamS\n" );
 	fprintf2( cs, csW, "\n\n" );
 
-	fprintf2( sc, scW, "VECTOR __stdcall dx_MGetTranslateElem( MATRIX InM )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_MGetTranslateElem( MATRIX InM )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = InM.m[ 3 ][ 0 ] ;\n" ) ;
@@ -1908,7 +2036,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = InM.m[ 3 ][ 2 ] ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_MGetTranslateElemD( MATRIX_D InM )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_MGetTranslateElemD( MATRIX_D InM )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = InM.m[ 3 ][ 0 ] ;\n" ) ;
@@ -1916,7 +2044,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = InM.m[ 3 ][ 2 ] ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_VConvFtoD( VECTOR In )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_VConvFtoD( VECTOR In )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In.x ;\n" ) ;
@@ -1924,7 +2052,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In.z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "VECTOR __stdcall dx_VConvDtoF( VECTOR_D In )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_VConvDtoF( VECTOR_D In )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = ( float )In.x ;\n" ) ;
@@ -1932,7 +2060,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = ( float )In.z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "VECTOR __stdcall dx_VGet( float x, float y, float z )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_VGet( float x, float y, float z )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = x ;\n" ) ;
@@ -1940,7 +2068,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_VGetD( double x, double y, double z )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_VGetD( double x, double y, double z )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = x ;\n" ) ;
@@ -1948,14 +2076,14 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "FLOAT2 __stdcall dx_F2Get( float u, float v )\n" ) ;
+	fprintf2( sc, scW, "FLOAT2  dx_F2Get( float u, float v )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT2 Result;\n" ) ;
 	fprintf2( sc, scW, "\tResult.u = u ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.v = v ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "FLOAT4 __stdcall dx_F4Get( float x, float y, float z, float w )\n" ) ;
+	fprintf2( sc, scW, "FLOAT4  dx_F4Get( float x, float y, float z, float w )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT4 Result;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = x ;\n" ) ;
@@ -1964,7 +2092,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.w = w ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "DOUBLE4 __stdcall dx_D4Get( double x, double y, double z, double w )\n" ) ;
+	fprintf2( sc, scW, "DOUBLE4  dx_D4Get( double x, double y, double z, double w )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tDOUBLE4 Result;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = x ;\n" ) ;
@@ -1973,7 +2101,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.w = w ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "VECTOR __stdcall dx_VAdd( VECTOR In1, VECTOR In2 )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_VAdd( VECTOR In1, VECTOR In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.x + In2.x ;\n" ) ;
@@ -1981,7 +2109,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In1.z + In2.z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_VAddD( VECTOR_D In1, VECTOR_D In2 )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_VAddD( VECTOR_D In1, VECTOR_D In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.x + In2.x ;\n" ) ;
@@ -1989,7 +2117,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In1.z + In2.z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR __stdcall dx_VSub( VECTOR In1, VECTOR In2 )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_VSub( VECTOR In1, VECTOR In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.x - In2.x ;\n" ) ;
@@ -1997,7 +2125,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In1.z - In2.z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_VSubD( VECTOR_D In1, VECTOR_D In2 )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_VSubD( VECTOR_D In1, VECTOR_D In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.x - In2.x ;\n" ) ;
@@ -2005,14 +2133,14 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In1.z - In2.z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "FLOAT2 __stdcall dx_F2Add( FLOAT2 In1, FLOAT2 In2 )\n" ) ;
+	fprintf2( sc, scW, "FLOAT2  dx_F2Add( FLOAT2 In1, FLOAT2 In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT2 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.u = In1.u + In2.u ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.v = In1.v + In2.v ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "FLOAT4 __stdcall dx_F4Add( FLOAT4 In1, FLOAT4 In2 )\n" ) ;
+	fprintf2( sc, scW, "FLOAT4  dx_F4Add( FLOAT4 In1, FLOAT4 In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT4 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.x + In2.x ;\n" ) ;
@@ -2021,7 +2149,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.w = In1.w + In2.w ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "DOUBLE4	__stdcall dx_D4Add( DOUBLE4 In1, DOUBLE4 In2 )\n" ) ;
+	fprintf2( sc, scW, "DOUBLE4	 dx_D4Add( DOUBLE4 In1, DOUBLE4 In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tDOUBLE4 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.x + In2.x ;\n" ) ;
@@ -2030,14 +2158,14 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.w = In1.w + In2.w ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "FLOAT2 __stdcall dx_F2Sub( FLOAT2 In1, FLOAT2 In2 )\n" ) ;
+	fprintf2( sc, scW, "FLOAT2  dx_F2Sub( FLOAT2 In1, FLOAT2 In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT2 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.u = In1.u - In2.u ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.v = In1.v - In2.v ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "FLOAT4 __stdcall dx_F4Sub( FLOAT4 In1, FLOAT4 In2 )\n" ) ;
+	fprintf2( sc, scW, "FLOAT4  dx_F4Sub( FLOAT4 In1, FLOAT4 In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT4 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.x - In2.x ;\n" ) ;
@@ -2046,7 +2174,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.w = In1.w - In2.w ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "DOUBLE4	__stdcall dx_D4Sub( DOUBLE4 In1, DOUBLE4 In2 )\n" ) ;
+	fprintf2( sc, scW, "DOUBLE4	 dx_D4Sub( DOUBLE4 In1, DOUBLE4 In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tDOUBLE4 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.x - In2.x ;\n" ) ;
@@ -2055,15 +2183,15 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.w = In1.w - In2.w ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "float __stdcall dx_VDot( VECTOR In1, VECTOR In2 )\n" ) ;
+	fprintf2( sc, scW, "float  dx_VDot( VECTOR In1, VECTOR In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\treturn In1.x * In2.x + In1.y * In2.y + In1.z * In2.z ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "double __stdcall dx_VDotD( VECTOR_D In1, VECTOR_D In2 )\n" ) ;
+	fprintf2( sc, scW, "double  dx_VDotD( VECTOR_D In1, VECTOR_D In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\treturn In1.x * In2.x + In1.y * In2.y + In1.z * In2.z ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR __stdcall dx_VCross( VECTOR In1, VECTOR In2 )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_VCross( VECTOR In1, VECTOR In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.y * In2.z - In1.z * In2.y ;\n" ) ;
@@ -2071,7 +2199,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In1.x * In2.y - In1.y * In2.x ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_VCrossD( VECTOR_D In1, VECTOR_D In2 )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_VCrossD( VECTOR_D In1, VECTOR_D In2 )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In1.y * In2.z - In1.z * In2.y ;\n" ) ;
@@ -2079,7 +2207,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In1.x * In2.y - In1.y * In2.x ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR __stdcall dx_VScale( VECTOR In, float Scale )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_VScale( VECTOR In, float Scale )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In.x * Scale ;\n" ) ;
@@ -2087,7 +2215,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In.z * Scale ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_VScaleD( VECTOR_D In, double Scale )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_VScaleD( VECTOR_D In, double Scale )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In.x * Scale ;\n" ) ;
@@ -2095,14 +2223,14 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = In.z * Scale ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "FLOAT2 __stdcall dx_F2Scale( FLOAT2 In, float Scale )\n" ) ;
+	fprintf2( sc, scW, "FLOAT2  dx_F2Scale( FLOAT2 In, float Scale )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT2 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.u = In.u * Scale ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.v = In.v * Scale ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "FLOAT4 __stdcall dx_F4Scale( FLOAT4 In, float Scale )\n" ) ;
+	fprintf2( sc, scW, "FLOAT4  dx_F4Scale( FLOAT4 In, float Scale )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT4 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In.x * Scale ;\n" ) ;
@@ -2111,7 +2239,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.w = In.w * Scale ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "DOUBLE4 __stdcall dx_D4Scale( DOUBLE4 In, double Scale )\n" ) ;
+	fprintf2( sc, scW, "DOUBLE4  dx_D4Scale( DOUBLE4 In, double Scale )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tDOUBLE4 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = In.x * Scale ;\n" ) ;
@@ -2120,15 +2248,15 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.w = In.w * Scale ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "float __stdcall dx_VSquareSize( VECTOR In )\n" ) ;
+	fprintf2( sc, scW, "float  dx_VSquareSize( VECTOR In )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\treturn In.x * In.x + In.y * In.y + In.z * In.z ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "double __stdcall dx_VSquareSizeD( VECTOR_D In )\n" ) ;
+	fprintf2( sc, scW, "double  dx_VSquareSizeD( VECTOR_D In )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\treturn In.x * In.x + In.y * In.y + In.z * In.z ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR __stdcall dx_VTransform( VECTOR InV, MATRIX InM )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_VTransform( VECTOR InV, MATRIX InM )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = InV.x * InM.m[0][0] + InV.y * InM.m[1][0] + InV.z * InM.m[2][0] + InM.m[3][0] ;\n" ) ;
@@ -2136,7 +2264,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = InV.x * InM.m[0][2] + InV.y * InM.m[1][2] + InV.z * InM.m[2][2] + InM.m[3][2] ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_VTransformD( VECTOR_D InV, MATRIX_D InM )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_VTransformD( VECTOR_D InV, MATRIX_D InM )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = InV.x * InM.m[0][0] + InV.y * InM.m[1][0] + InV.z * InM.m[2][0] + InM.m[3][0] ;\n" ) ;
@@ -2144,7 +2272,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = InV.x * InM.m[0][2] + InV.y * InM.m[1][2] + InV.z * InM.m[2][2] + InM.m[3][2] ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR __stdcall dx_VTransformSR( VECTOR InV, MATRIX InM )\n" ) ;
+	fprintf2( sc, scW, "VECTOR  dx_VTransformSR( VECTOR InV, MATRIX InM )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = InV.x * InM.m[0][0] + InV.y * InM.m[1][0] + InV.z * InM.m[2][0] ;\n" ) ;
@@ -2152,7 +2280,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = InV.x * InM.m[0][2] + InV.y * InM.m[1][2] + InV.z * InM.m[2][2] ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "VECTOR_D __stdcall dx_VTransformSRD( VECTOR_D InV, MATRIX_D InM )\n" ) ;
+	fprintf2( sc, scW, "VECTOR_D  dx_VTransformSRD( VECTOR_D InV, MATRIX_D InM )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tVECTOR_D Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.x = InV.x * InM.m[0][0] + InV.y * InM.m[1][0] + InV.z * InM.m[2][0] ;\n" ) ;
@@ -2160,7 +2288,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = InV.x * InM.m[0][2] + InV.y * InM.m[1][2] + InV.z * InM.m[2][2] ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n\n" ) ;
-	fprintf2( sc, scW, "FLOAT4 __stdcall dx_QTCross( FLOAT4 A, FLOAT4 B )\n" ) ;
+	fprintf2( sc, scW, "FLOAT4  dx_QTCross( FLOAT4 A, FLOAT4 B )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
     fprintf2( sc, scW, "\tFLOAT4 Result ;\n" ) ;
     fprintf2( sc, scW, "\tResult.w = A.w * B.w - ( A.x * B.x + A.y * B.y + A.z * B.z ) ;\n" ) ;
@@ -2169,7 +2297,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = B.z * A.w + A.z * B.w + ( A.x * B.y - A.y * B.x ) ;\n" ) ;
     fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "DOUBLE4 __stdcall dx_QTCrossD( DOUBLE4 A, DOUBLE4 B )\n" ) ;
+	fprintf2( sc, scW, "DOUBLE4  dx_QTCrossD( DOUBLE4 A, DOUBLE4 B )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
     fprintf2( sc, scW, "\tDOUBLE4 Result ;\n" ) ;
     fprintf2( sc, scW, "\tResult.w = A.w * B.w - ( A.x * B.x + A.y * B.y + A.z * B.z ) ;\n" ) ;
@@ -2178,7 +2306,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = B.z * A.w + A.z * B.w + ( A.x * B.y - A.y * B.x ) ;\n" ) ;
     fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "FLOAT4 __stdcall dx_QTConj( FLOAT4 A )\n" ) ;
+	fprintf2( sc, scW, "FLOAT4  dx_QTConj( FLOAT4 A )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tFLOAT4 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.w =  A.w ;\n" ) ;
@@ -2187,7 +2315,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf2( sc, scW, "\tResult.z = -A.z ;\n" ) ;
 	fprintf2( sc, scW, "\treturn Result ;\n" ) ;
 	fprintf2( sc, scW, "}\n" ) ;
-	fprintf2( sc, scW, "DOUBLE4 __stdcall dx_QTConjD( DOUBLE4 A )\n" ) ;
+	fprintf2( sc, scW, "DOUBLE4  dx_QTConjD( DOUBLE4 A )\n" ) ;
 	fprintf2( sc, scW, "{\n" ) ;
 	fprintf2( sc, scW, "\tDOUBLE4 Result ;\n" ) ;
 	fprintf2( sc, scW, "\tResult.w =  A.w ;\n" ) ;
@@ -2199,81 +2327,81 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 
 
 
-	fprintf2( hd, hdW, "VECTOR   __stdcall dx_MGetTranslateElem( MATRIX InM ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR    dx_MGetTranslateElem( MATRIX InM ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_MGetTranslateElem\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_MGetTranslateElemD( MATRIX_D InM ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_MGetTranslateElemD( MATRIX_D InM ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_MGetTranslateElemD\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_VConvFtoD( VECTOR In ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_VConvFtoD( VECTOR In ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VConvFtoD\n" ) ;
-	fprintf2( hd, hdW, "VECTOR __stdcall dx_VConvDtoF( VECTOR_D In ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR  dx_VConvDtoF( VECTOR_D In ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VConvDtoF\n" ) ;
-	fprintf2( hd, hdW, "VECTOR   __stdcall dx_VGet(  float x, float y, float z ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR    dx_VGet(  float x, float y, float z ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VGet\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_VGetD( double x, double y, double z ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_VGetD( double x, double y, double z ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VGetD\n" ) ;
-	fprintf2( hd, hdW, "FLOAT2 __stdcall dx_F2Get( float u, float v ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT2  dx_F2Get( float u, float v ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_F2Get\n" ) ;
-	fprintf2( hd, hdW, "FLOAT4 __stdcall dx_F4Get( float x, float y, float z, float w ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT4  dx_F4Get( float x, float y, float z, float w ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_F4Get\n" ) ;
-	fprintf2( hd, hdW, "DOUBLE4 __stdcall dx_D4Get( double x, double y, double z, double w ) ;\n" ) ;
+	fprintf2( hd, hdW, "DOUBLE4  dx_D4Get( double x, double y, double z, double w ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_D4Get\n" ) ;
-	fprintf2( hd, hdW, "VECTOR   __stdcall dx_VAdd(  VECTOR   In1, VECTOR   In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR    dx_VAdd(  VECTOR   In1, VECTOR   In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VAdd\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_VAddD( VECTOR_D In1, VECTOR_D In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_VAddD( VECTOR_D In1, VECTOR_D In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VAddD\n" ) ;
-	fprintf2( hd, hdW, "VECTOR   __stdcall dx_VSub(  VECTOR   In1, VECTOR   In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR    dx_VSub(  VECTOR   In1, VECTOR   In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VSub\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_VSubD( VECTOR_D In1, VECTOR_D In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_VSubD( VECTOR_D In1, VECTOR_D In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VSubD\n" ) ;
-	fprintf2( hd, hdW, "FLOAT2 __stdcall dx_F2Add( FLOAT2 In1, FLOAT2 In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT2  dx_F2Add( FLOAT2 In1, FLOAT2 In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_F2Add\n" ) ;
-	fprintf2( hd, hdW, "FLOAT4 __stdcall dx_F4Add( FLOAT4 In1, FLOAT4 In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT4  dx_F4Add( FLOAT4 In1, FLOAT4 In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_F4Add\n" ) ;
-	fprintf2( hd, hdW, "DOUBLE4 __stdcall dx_D4Add( DOUBLE4 In1, DOUBLE4 In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "DOUBLE4  dx_D4Add( DOUBLE4 In1, DOUBLE4 In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_D4Add\n" ) ;
-	fprintf2( hd, hdW, "FLOAT2 __stdcall dx_F2Sub( FLOAT2 In1, FLOAT2 In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT2  dx_F2Sub( FLOAT2 In1, FLOAT2 In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_F2Sub\n" ) ;
-	fprintf2( hd, hdW, "FLOAT4 __stdcall dx_F4Sub( FLOAT4 In1, FLOAT4 In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT4  dx_F4Sub( FLOAT4 In1, FLOAT4 In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_F4Sub\n" ) ;
-	fprintf2( hd, hdW, "DOUBLE4 __stdcall dx_D4Sub( DOUBLE4 In1, DOUBLE4 In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "DOUBLE4  dx_D4Sub( DOUBLE4 In1, DOUBLE4 In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_D4Sub\n" ) ;
-	fprintf2( hd, hdW, "float  __stdcall dx_VDot(  VECTOR   In1, VECTOR   In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "float   dx_VDot(  VECTOR   In1, VECTOR   In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VDot\n" ) ;
-	fprintf2( hd, hdW, "double __stdcall dx_VDotD( VECTOR_D In1, VECTOR_D In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "double  dx_VDotD( VECTOR_D In1, VECTOR_D In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VDotD\n" ) ;
-	fprintf2( hd, hdW, "VECTOR   __stdcall dx_VCross(  VECTOR   In1, VECTOR   In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR    dx_VCross(  VECTOR   In1, VECTOR   In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VCross\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_VCrossD( VECTOR_D In1, VECTOR_D In2 ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_VCrossD( VECTOR_D In1, VECTOR_D In2 ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VCrossD\n" ) ;
-	fprintf2( hd, hdW, "VECTOR   __stdcall dx_VScale(  VECTOR   In, float Scale ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR    dx_VScale(  VECTOR   In, float Scale ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VScale\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_VScaleD( VECTOR_D In, double Scale ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_VScaleD( VECTOR_D In, double Scale ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VScaleD\n" ) ;
-	fprintf2( hd, hdW, "FLOAT2 __stdcall dx_F2Scale( FLOAT2 In, float Scale ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT2  dx_F2Scale( FLOAT2 In, float Scale ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_F2Scale\n" ) ;
-	fprintf2( hd, hdW, "FLOAT4 __stdcall dx_F4Scale( FLOAT4 In, float Scale ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT4  dx_F4Scale( FLOAT4 In, float Scale ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_F4Scale\n" ) ;
-	fprintf2( hd, hdW, "DOUBLE4 __stdcall dx_D4Scale( DOUBLE4 In, double Scale ) ;\n" ) ;
+	fprintf2( hd, hdW, "DOUBLE4  dx_D4Scale( DOUBLE4 In, double Scale ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_D4Scale\n" ) ;
-	fprintf2( hd, hdW, "float  __stdcall dx_VSquareSize(  VECTOR   In ) ;\n" ) ;
+	fprintf2( hd, hdW, "float   dx_VSquareSize(  VECTOR   In ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VSquareSize\n" ) ;
-	fprintf2( hd, hdW, "double __stdcall dx_VSquareSizeD( VECTOR_D In ) ;\n" ) ;
+	fprintf2( hd, hdW, "double  dx_VSquareSizeD( VECTOR_D In ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VSquareSizeD\n" ) ;
-	fprintf2( hd, hdW, "VECTOR   __stdcall dx_VTransform(  VECTOR   InV, MATRIX   InM ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR    dx_VTransform(  VECTOR   InV, MATRIX   InM ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VTransform\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_VTransformD( VECTOR_D InV, MATRIX_D InM ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_VTransformD( VECTOR_D InV, MATRIX_D InM ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VTransformD\n" ) ;
-	fprintf2( hd, hdW, "VECTOR   __stdcall dx_VTransformSR(  VECTOR   InV, MATRIX   InM ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR    dx_VTransformSR(  VECTOR   InV, MATRIX   InM ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VTransformSR\n" ) ;
-	fprintf2( hd, hdW, "VECTOR_D __stdcall dx_VTransformSRD( VECTOR_D InV, MATRIX_D InM ) ;\n" ) ;
+	fprintf2( hd, hdW, "VECTOR_D  dx_VTransformSRD( VECTOR_D InV, MATRIX_D InM ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_VTransformSRD\n" ) ;
-	fprintf2( hd, hdW, "FLOAT4 __stdcall dx_QTCross( FLOAT4 A, FLOAT4 B ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT4  dx_QTCross( FLOAT4 A, FLOAT4 B ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_QTCross\n" ) ;
-	fprintf2( hd, hdW, "DOUBLE4 __stdcall dx_QTCrossD( DOUBLE4 A, DOUBLE4 B ) ;\n" ) ;
+	fprintf2( hd, hdW, "DOUBLE4  dx_QTCrossD( DOUBLE4 A, DOUBLE4 B ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_QTCrossD\n" ) ;
-	fprintf2( hd, hdW, "FLOAT4 __stdcall dx_QTConj( FLOAT4 A ) ;\n" ) ;
+	fprintf2( hd, hdW, "FLOAT4  dx_QTConj( FLOAT4 A ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_QTConj\n" ) ;
-	fprintf2( hd, hdW, "DOUBLE4 __stdcall dx_QTConjD( DOUBLE4 A ) ;\n" ) ;
+	fprintf2( hd, hdW, "DOUBLE4  dx_QTConjD( DOUBLE4 A ) ;\n" ) ;
 	fprintf4( def, defW, def64, def64W, "\tdx_QTConjD\n" ) ;
 }
 
@@ -2484,8 +2612,8 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 		{
 			const char *CallType = Func.IsVaList ? "Cdecl" : "StdCall";
 
-			fprintf(  cs,      "\t\t[DllImport(\"DxLib\", EntryPoint=\"%s\", CallingConvention=CallingConvention.%s)]\n", DllFuncName, CallType );
-			fprintf2( cs, csW, "\t\textern %sstatic %s %s_%s( ", unsafe ? "unsafe " : "", Func.CSType, DllFuncName, "x86" );
+			fprintf(  cs,      "\t\t[MethodImplAttribute(MethodImplOptions.InternalCall)]\n" );
+			fprintf2( cs, csW, "\t\textern %sstatic %s %s( ", unsafe ? "unsafe " : "", Func.CSType, DllFuncName );
 
 			// 引数部分を出力
 			par = Func.Parameter;
@@ -2585,15 +2713,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 					k ++ ;
 				}
 
-				for( l = 0; l < 1; l++ )
 				{
-					if( l == 0 )
-					{
-						// 64bitか32bitかの分岐
-						fprintf2( cs, csW, "\t\t\tif( System.IntPtr.Size == 4 )\n" );
-						fprintf2( cs, csW, "\t\t\t{\n" );
-					}
-
 					// TCHAR * が戻り値の場合は System.IntPtr に戻り値を代入する
 					if( TCHARret )
 					{
@@ -2611,7 +2731,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 					}
 
 					// DLL の関数名を出力
-					fprintf2( cs, csW, "%s%s( ", DllFuncName, l == 0 ? "_x86" : "_x64" ) ;
+					fprintf2( cs, csW, "%s( ", DllFuncName ) ;
 
 					// 引数を出力
 					par = Func.Parameter;
@@ -2713,17 +2833,6 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 						fprintf(  csW,     "\t\t\t\t\treturn System.Runtime.InteropServices.Marshal.PtrToStringUni( resultIntPtr );\n" );
 						fprintf2( cs, csW, "\t\t\t\t}\n" );
 					}
-
-					if( l == 0 )
-					{
-						fprintf2( cs, csW, "\t\t\t}\n" );
-						fprintf2( cs, csW, "\t\t\telse\n" );
-						fprintf2( cs, csW, "\t\t\t{\n" );
-					}
-					else
-					{
-						fprintf2( cs, csW, "\t\t\t}\n" );
-					}
 				}
 
 				fprintf2( cs, csW, "\t\t}\n" );
@@ -2732,7 +2841,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 
 		// DLL用関数出力
 		{
-			const char *calltype = Func.IsVaList ? "__cdecl" : "__stdcall";
+			const char *calltype = Func.IsVaList ? "" : "";
 
 			// GetColor だけ別処理
 //			if( strcmp( Func.CPPType, "DWORD " ) == 0 && strcmp( Func.Name, "GetColor" ) == 0 )
@@ -2925,11 +3034,11 @@ CPPOUTONLY:
 
 		// 関数名を出力
 		{
-			const char *calltype = Func.IsVaList ? "__cdecl" : "__stdcall";
+			const char *calltype = Func.IsVaList ? "" : "";
 			fprintf4( def, defW, def64, def64W, "\t%s\n", Str2 ) ;
 			fprintf2( hd, hdW, "%s %s( ", calltype, Str2 ) ;
 			fprintf2( sc, scW, "%s %s( ", calltype, Str2 ) ;
-			fprintf( monoDef, "\t{ \"DX::%s\", %s },\n", Func.Name, Str2 );
+			fprintf( monoDef, "\tmono_add_internal_call(\"DX::%s\", (void*)%s );\n", Func.Name, Str2 );
 		}
 
 		// 引数の出力
@@ -3132,22 +3241,22 @@ CPPOUTONLY:
 // 手動関数定義の出力を楽にする関数
 void OutputCSFunctionDefine( FILE *cs, FILE *csW, const char *FuncName, const char *CSRet, const char *CSParamDefine, bool Unsafe )
 {
-	fprintf(  cs,      "\t\t[DllImport(\"DxLib\",     EntryPoint=\"%s\")]\n",                           FuncName );
-	fprintf2( cs, csW, "\t\textern %sstatic %s %s_x86%s;\n", Unsafe ? "unsafe " : "", CSRet, FuncName, CSParamDefine );
+	fprintf(  cs,      "\t\t[MethodImplAttribute(MethodImplOptions.InternalCall)]\n" );
+	fprintf2( cs, csW, "\t\textern %sstatic %s %s%s;\n", Unsafe ? "unsafe " : "", CSRet, FuncName, CSParamDefine );
 }
 
 // 手動関数コードの出力を楽にする関数
 void OutputCSFunctionCode( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 )
 {
 	fprintf2( cs, csW, "\t\t{\n" );
-	fprintf2( cs, csW, "\t\t\t%s_x86%s;\n", FuncCode1, FuncCode2 );
+	fprintf2( cs, csW, "\t\t\t%s%s;\n", FuncCode1, FuncCode2 );
 	fprintf2( cs, csW, "\t\t}\n" );
 }
 
 // 手動関数コードの出力を楽にする関数
 void OutputCSFunctionCode2( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 )
 {
-	fprintf2( cs, csW, "\t\t\t%s_x86%s;\n", FuncCode1, FuncCode2 );
+	fprintf2( cs, csW, "\t\t\t%s%s;\n", FuncCode1, FuncCode2 );
 }
 
 // main関数
@@ -3219,18 +3328,16 @@ int main( int argc, char **argv )
 	fprintf2( sc, scW, "#define DX_CHAR char\n" );
 
 	fprintf2( cs, csW, "using System.Runtime.InteropServices;\n" );
+	fprintf2( cs, csW, "using System.Runtime.CompilerServices;\n" );
 	fprintf2( cs, csW, "namespace DxLibDLL\n" );
 	fprintf2( cs, csW, "{\n" );
 	fprintf2( cs, csW, "\tpublic static class DX\n" );
 	fprintf2( cs, csW, "\t{\n" );
 
 	fprintf( monoDef, "#include \"DxDLL.h\"\n");
-	fprintf( monoDef, "#include \"DxDLL.h\"\n");
-	fprintf( monoDef, "#include \"config.h\"\n");
-	fprintf( monoDef, "#include \"mono/utils/mono-dl.h\"\n");
-	fprintf( monoDef, "#include \"mono/utils/mono-embed.h\"\n");
+	fprintf( monoDef, "#include <mono/jit/jit.h>\n");
 	fprintf( monoDef, "\n");
-	fprintf( monoDef, "MonoDlMapping dxlibMappings[] = \n");
+	fprintf( monoDef, "extern \"C\" void registerDxLibLibraryMappings() {\n");
 
 	// 定数定義を C# のファイルに出力する
 	OutputDefineStr( cs, csW ) ;
@@ -3245,11 +3352,7 @@ int main( int argc, char **argv )
 	fprintf2( hd, hdW, "}\n" );
 	fprintf2( cs, csW, "\t}\n" );
 	fprintf2( cs, csW, "}\n" );
-
-	fprintf( monoDef, "}\n");
-	fprintf( monoDef, "\n");
-	fprintf( monoDef, "void registerDxLibLibraryMappings() {\n");
-	fprintf( monoDef, "\tmono_dl_register_library (\"DxLib\", dxlibMappings);\n");
+	
 	fprintf( monoDef, "}\n");
 
 	// ファイルを閉じる
