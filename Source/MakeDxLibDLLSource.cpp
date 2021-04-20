@@ -22,64 +22,64 @@ inline void _itoa(int number, char* buffer, size_t base)
 #include <windows.h>
 #endif
 
-// æ–‡å­—åˆ—èª­ã¿è¾¼ã¿ç”¨ã‚¯ãƒ©ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+// •¶š—ñ“Ç‚İ‚İ—pƒNƒ‰ƒXƒIƒuƒWƒFƒNƒg
 TextAnalyse dhtxt, /* dfhtxt, dxtxt, */ ttxt;
 
-// é–¢æ•°åæƒ…å ±
+// ŠÖ”–¼î•ñ
 struct FUNCTIONNAME
 {
-	int				Counter;				// åŒåé–¢æ•°ã®æ•°
-	char			Name[ 64 ];				// é–¢æ•°å
+	int				Counter;				// “¯–¼ŠÖ”‚Ì”
+	char			Name[ 64 ];				// ŠÖ”–¼
 } ;
 
-// ãƒ¡ã‚¤ãƒ³ãƒ‡ãƒ¼ã‚¿
+// ƒƒCƒ“ƒf[ƒ^
 struct MAIN
 {
-	char			*Struct;				// DxLib.h ã®æ§‹é€ ä½“ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹éƒ¨åˆ†ã®æ–‡å­—åˆ—
-	char			*Function;				// DxLib.h ã®é–¢æ•°ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹éƒ¨åˆ†ã®æ–‡å­—åˆ—
+	char			*Struct;				// DxLib.h ‚Ì\‘¢‘Ì‚ª’è‹`‚³‚ê‚Ä‚¢‚é•”•ª‚Ì•¶š—ñ
+	char			*Function;				// DxLib.h ‚ÌŠÖ”‚ª’è‹`‚³‚ê‚Ä‚¢‚é•”•ª‚Ì•¶š—ñ
 
-	int				FuncNameNum ;			// é–¢æ•°åã®æ•°
-	FUNCTIONNAME	FuncName[ 65536 ] ;		// é–¢æ•°åæƒ…å ±
+	int				FuncNameNum ;			// ŠÖ”–¼‚Ì”
+	FUNCTIONNAME	FuncName[ 65536 ] ;		// ŠÖ”–¼î•ñ
 } dat;
 
-// é–¢æ•°ã®å¼•æ•°ã«é–¢ã™ã‚‹æƒ…å ±
+// ŠÖ”‚Ìˆø”‚ÉŠÖ‚·‚éî•ñ
 struct PARAMETER
 {
-	bool			ValidDefault;			// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ãŒæœ‰åŠ¹ã‹ã©ã†ã‹
-	bool			Out;					// out å±æ€§ã‹ã©ã†ã‹
-	bool			Array;					// é…åˆ— In/Out å±æ€§ã‹ã©ã†ã‹
-	char			Default[64];			// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ã®æ–‡å­—åˆ—
-	char			CPPType[64];			// C++ ã§ã®å‹
-	char			CSType[64];				// C# ã§ã®å‹
-	char			CSTypeName[64];			// C# ã§ã®å‹å
-	char			Name[64];				// å¼•æ•°å
+	bool			ValidDefault;			// ƒfƒtƒHƒ‹ƒgˆø”‚ª—LŒø‚©‚Ç‚¤‚©
+	bool			Out;					// out ‘®«‚©‚Ç‚¤‚©
+	bool			Array;					// ”z—ñ In/Out ‘®«‚©‚Ç‚¤‚©
+	char			Default[64];			// ƒfƒtƒHƒ‹ƒgˆø”‚Ì•¶š—ñ
+	char			CPPType[64];			// C++ ‚Å‚ÌŒ^
+	char			CSType[64];				// C# ‚Å‚ÌŒ^
+	char			CSTypeName[64];			// C# ‚Å‚ÌŒ^–¼
+	char			Name[64];				// ˆø”–¼
 };
 
-// é–¢æ•°ã«é–¢ã™ã‚‹æƒ…å ±
+// ŠÖ”‚ÉŠÖ‚·‚éî•ñ
 struct FUNCTION
 {
-	bool			Void;					// æˆ»ã‚Šå€¤ã®å‹ãŒ void å‹ã‹ã©ã†ã‹
-	bool			IsVaList;				// å¯å¤‰é•·å¼•æ•°ã‚’ä½¿ç”¨ã™ã‚‹é–¢æ•°ã‹ã©ã†ã‹
-	char			CPPType[64];			// C++ ã§ã®æˆ»ã‚Šå€¤ã®å‹
-	char			CSType[64];				// C# ã§ã®æˆ»ã‚Šå€¤ã®å‹
-	char			CSTypeName[64];			// C# ã§ã®æˆ»ã‚Šå€¤ã®å‹å
-	char			Name[64];				// é–¢æ•°å
+	bool			Void;					// –ß‚è’l‚ÌŒ^‚ª void Œ^‚©‚Ç‚¤‚©
+	bool			IsVaList;				// ‰Â•Ï’·ˆø”‚ğg—p‚·‚éŠÖ”‚©‚Ç‚¤‚©
+	char			CPPType[64];			// C++ ‚Å‚Ì–ß‚è’l‚ÌŒ^
+	char			CSType[64];				// C# ‚Å‚Ì–ß‚è’l‚ÌŒ^
+	char			CSTypeName[64];			// C# ‚Å‚Ì–ß‚è’l‚ÌŒ^–¼
+	char			Name[64];				// ŠÖ”–¼
 	
-	PARAMETER		Parameter[64];			// å¼•æ•°ã®æƒ…å ±
-	int				ParameterNum;			// å¼•æ•°ã®æ•°
-	int				DefaultNum;				// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ã®æ•°
+	PARAMETER		Parameter[64];			// ˆø”‚Ìî•ñ
+	int				ParameterNum;			// ˆø”‚Ì”
+	int				DefaultNum;				// ƒfƒtƒHƒ‹ƒgˆø”‚Ì”
 };
 
-// å‹å¤‰æ›ã§ä½¿ç”¨ã™ã‚‹æƒ…å ±
+// Œ^•ÏŠ·‚Åg—p‚·‚éî•ñ
 struct TYPEINFO
 {
-	const char		*CPPName ;				// C++ ã§ã®å‹å
-	const char		*CSName ;				// C# ã§ã®å‹å
-	int				Size ;					// å‹ã®ã‚µã‚¤ã‚º( byteæ•° )
+	const char		*CPPName ;				// C++ ‚Å‚ÌŒ^–¼
+	const char		*CSName ;				// C# ‚Å‚ÌŒ^–¼
+	int				Size ;					// Œ^‚ÌƒTƒCƒY( byte” )
 } ;
 
 
-// å‹ã®å¤‰æ›æƒ…å ±
+// Œ^‚Ì•ÏŠ·î•ñ
 TYPEINFO TypeInfoDim[] =
 {
 	"void",						NULL,					0,
@@ -127,7 +127,7 @@ TYPEINFO TypeInfoDim[] =
 	NULL, NULL, -1,
 } ;
 
-// DLL ã«ã®ã¿å‡ºåŠ›ã—ã¦ C# ç”¨ã«ã¯å‡ºåŠ›ã—ãªã„é–¢æ•°ã®ãƒªã‚¹ãƒˆ
+// DLL ‚É‚Ì‚İo—Í‚µ‚Ä C# —p‚É‚Ío—Í‚µ‚È‚¢ŠÖ”‚ÌƒŠƒXƒg
 const char *DLLOnlyFunction[] =
 {
 	"ClearDrawScreen", "ClearDrawScreenZBuffer",
@@ -152,7 +152,7 @@ const char *DLLOnlyFunction[] =
 	NULL,
 };
 
-// ä¸€åˆ‡å‡ºåŠ›ã—ãªã„é–¢æ•°ã®ãƒªã‚¹ãƒˆ
+// ˆêØo—Í‚µ‚È‚¢ŠÖ”‚ÌƒŠƒXƒg
 const char *SkipFunction[] =
 {
 	"GraphFilter", "GraphFilterBlt", "GraphFilterRectBlt",
@@ -312,7 +312,7 @@ const char *SkipFunction[] =
 	NULL,
 } ;
 
-// ç„¡è¦–ã™ã‚‹ãƒã‚¯ãƒ­ã®ãƒªã‚¹ãƒˆ
+// –³‹‚·‚éƒ}ƒNƒ‚ÌƒŠƒXƒg
 const char *SkipDefine[] =
 {
 	"STTELL(", "STSEEK(", "STREAD(", "STWRITE(", "STEOF(", "STCLOSE(",
@@ -323,45 +323,45 @@ const char *SkipDefine[] =
 };
 
 
-int		AddFunctionName( const char *Name ) ;								// é–¢æ•°åã‚’è¿½åŠ ã™ã‚‹( æˆ»ã‚Šå€¤ï¼šåŒã˜åå‰ã®é–¢æ•°ã®æ•° )
+int		AddFunctionName( const char *Name ) ;								// ŠÖ”–¼‚ğ’Ç‰Á‚·‚é( –ß‚è’lF“¯‚¶–¼‘O‚ÌŠÖ”‚Ì” )
 
-int		CheckSkipFunc( char *str );											// æŒ‡å®šã®é–¢æ•°ã‚’ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹( 0:ã‚¹ã‚­ãƒƒãƒ—ã—ãªã„  1:DLLã«ã®ã¿å‡ºåŠ›ã™ã‚‹  2:ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ )
-bool	CheckSkipDefine( char *str );										// æŒ‡å®šã®ãƒã‚¯ãƒ­ã‚’ç„¡è¦–ã™ã‚‹ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹( true:ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹  false:ã‚¹ã‚­ãƒƒãƒ—ã—ãªã„ )
-bool	CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdecl );		// å‹ã‹ã‚‰ãã®é–¢æ•°ã‚’C#ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã«å‡ºåŠ›ã™ã¹ãã‹ã‚’èª¿ã¹ã‚‹( true:å‡ºåŠ›ã—ãªã„  false:å‡ºåŠ›ã™ã‚‹ )
-bool	CheckSkipStruct( char *source );									// æŒ‡å®šã®æ§‹é€ ä½“ã®ä¸­èº«ã‹ã‚‰ç„¡è¦–ã™ã‚‹æ§‹é€ ä½“ã‹ã©ã†ã‹ã‚’åˆ¤æ–­ã™ã‚‹( true:ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹  false:ã‚¹ã‚­ãƒƒãƒ—ã—ãªã„ )
+int		CheckSkipFunc( char *str );											// w’è‚ÌŠÖ”‚ğƒXƒLƒbƒv‚·‚é‚©‚Ç‚¤‚©‚ğ’²‚×‚é( 0:ƒXƒLƒbƒv‚µ‚È‚¢  1:DLL‚É‚Ì‚İo—Í‚·‚é  2:ƒXƒLƒbƒv‚·‚é )
+bool	CheckSkipDefine( char *str );										// w’è‚Ìƒ}ƒNƒ‚ğ–³‹‚·‚é‚©‚Ç‚¤‚©‚ğ’²‚×‚é( true:ƒXƒLƒbƒv‚·‚é  false:ƒXƒLƒbƒv‚µ‚È‚¢ )
+bool	CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdecl );		// Œ^‚©‚ç‚»‚ÌŠÖ”‚ğC#‚ÌƒvƒƒOƒ‰ƒ€‚Éo—Í‚·‚×‚«‚©‚ğ’²‚×‚é( true:o—Í‚µ‚È‚¢  false:o—Í‚·‚é )
+bool	CheckSkipStruct( char *source );									// w’è‚Ì\‘¢‘Ì‚Ì’†g‚©‚ç–³‹‚·‚é\‘¢‘Ì‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é( true:ƒXƒLƒbƒv‚·‚é  false:ƒXƒLƒbƒv‚µ‚È‚¢ )
 
-bool	GetDirectXDefineStr( char *search, char *buffer );					// æŒ‡å®šã®DirectXãƒã‚¯ãƒ­ã®æ•°å€¤æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹( true:æˆåŠŸ  false:å¤±æ•— )
-void	GetNumberOrIdentifier( char *src, char *dest );						// æŒ‡å®šã®æ–‡å­—åˆ—ã‹ã‚‰æ•°å­—åˆã¯è­˜åˆ¥å­ã‚’æŠœãå‡ºã™
+bool	GetDirectXDefineStr( char *search, char *buffer );					// w’è‚ÌDirectXƒ}ƒNƒ‚Ì”’l•¶š—ñ‚ğæ“¾‚·‚é( true:¬Œ÷  false:¸”s )
+void	GetNumberOrIdentifier( char *src, char *dest );						// w’è‚Ì•¶š—ñ‚©‚ç”š–”‚Í¯•Êq‚ğ”²‚«o‚·
 
-int		TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, char *CPPType, bool *pOutFlag, bool Struct, bool Unsafe, bool Function, bool *TCHARretFlag );		// C++ ç”¨ã®å‹æ–‡å­—åˆ—ã‚’ C# ç”¨ã®å‹æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹( æˆ»ã‚Šå€¤ï¼šå‹ã®ã‚µã‚¤ã‚º( byteæ•° ) )
-void	Conv16To10( char *src, char *dest );								// ï¼‘ï¼–é€²æ•°ã®æ–‡å­—åˆ—ã‚’ï¼‘ï¼é€²æ•°ã®æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
-int		ConvTokenStr( int bufferPos, char *buffer, char *src );				// æŒ‡å®šã®æ–‡å­—åˆ—ä¸­ã®æ§‹æ–‡é–“ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒã‚ã‚‹æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
-void	CreateTokenStr( void );												// æ§‹æ–‡é–“ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒã‚ã‚‹æ–‡å­—åˆ—ã‚’ä½œæˆã™ã‚‹
-void	fprintf2( FILE *fp1, FILE *fp2, const char *FormatStr, ... );		// äºŒã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿ã«åŒã˜å†…å®¹ã‚’ãƒ—ãƒªãƒ³ãƒˆå‡ºåŠ›ã™ã‚‹
-void	fprintf4( FILE *fp1, FILE *fp2, FILE *fp3, FILE *fp4, const char *FormatStr, ... );		// å››ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿ã«åŒã˜å†…å®¹ã‚’ãƒ—ãƒªãƒ³ãƒˆå‡ºåŠ›ã™ã‚‹
+int		TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, char *CPPType, bool *pOutFlag, bool Struct, bool Unsafe, bool Function, bool *TCHARretFlag );		// C++ —p‚ÌŒ^•¶š—ñ‚ğ C# —p‚ÌŒ^•¶š—ñ‚É•ÏŠ·‚·‚é( –ß‚è’lFŒ^‚ÌƒTƒCƒY( byte” ) )
+void	Conv16To10( char *src, char *dest );								// ‚P‚Ui”‚Ì•¶š—ñ‚ğ‚P‚Oi”‚Ì•¶š—ñ‚É•ÏŠ·‚·‚é
+int		ConvTokenStr( int bufferPos, char *buffer, char *src );				// w’è‚Ì•¶š—ñ’†‚Ì\•¶ŠÔ‚ÉƒXƒy[ƒX‚ª‚ ‚é•¶š—ñ‚É•ÏŠ·‚·‚é
+void	CreateTokenStr( void );												// \•¶ŠÔ‚ÉƒXƒy[ƒX‚ª‚ ‚é•¶š—ñ‚ğì¬‚·‚é
+void	fprintf2( FILE *fp1, FILE *fp2, const char *FormatStr, ... );		// “ñ‚Â‚Ìƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚É“¯‚¶“à—e‚ğƒvƒŠƒ“ƒgo—Í‚·‚é
+void	fprintf4( FILE *fp1, FILE *fp2, FILE *fp3, FILE *fp4, const char *FormatStr, ... );		// l‚Â‚Ìƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚É“¯‚¶“à—e‚ğƒvƒŠƒ“ƒgo—Í‚·‚é
 
-void	OutputDefineStr( FILE *cs, FILE *csW ) ;										// å®šæ•°å®šç¾©ã‚’å‡ºåŠ›ã™ã‚‹
-void	OutputStructStr( FILE *cs, FILE *csW ) ;										// æ§‹é€ ä½“å®šç¾©ã‚’å‡ºåŠ›ã™ã‚‹
-void	OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW ) ;	// ãƒ™ã‚¿å‡ºåŠ›ã®é–¢æ•°å®šç¾©ã‚’å‡ºåŠ›ã™ã‚‹
-void	OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW, FILE *monoDef ) ;		// é–¢æ•°å®šç¾©ã‚’å‡ºåŠ›ã™ã‚‹
-void	OutputCSFunctionDefine( FILE *cs, FILE *csW, const char *FuncName, const char *CSRet, const char *CSParamDefine, bool Unsafe = false );	// æ‰‹å‹•é–¢æ•°å®šç¾©ã®å‡ºåŠ›ã‚’æ¥½ã«ã™ã‚‹é–¢æ•°
-void	OutputCSFunctionCode( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 );	// æ‰‹å‹•é–¢æ•°ã‚³ãƒ¼ãƒ‰ã®å‡ºåŠ›ã‚’æ¥½ã«ã™ã‚‹é–¢æ•°
-void	OutputCSFunctionCode2( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 );	// æ‰‹å‹•é–¢æ•°ã‚³ãƒ¼ãƒ‰ã®å‡ºåŠ›ã‚’æ¥½ã«ã™ã‚‹é–¢æ•°
+void	OutputDefineStr( FILE *cs, FILE *csW ) ;										// ’è”’è‹`‚ğo—Í‚·‚é
+void	OutputStructStr( FILE *cs, FILE *csW ) ;										// \‘¢‘Ì’è‹`‚ğo—Í‚·‚é
+void	OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW ) ;	// ƒxƒ^o—Í‚ÌŠÖ”’è‹`‚ğo—Í‚·‚é
+void	OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW, FILE *monoDef ) ;		// ŠÖ”’è‹`‚ğo—Í‚·‚é
+void	OutputCSFunctionDefine( FILE *cs, FILE *csW, const char *FuncName, const char *CSRet, const char *CSParamDefine, bool Unsafe = false );	// è“®ŠÖ”’è‹`‚Ìo—Í‚ğŠy‚É‚·‚éŠÖ”
+void	OutputCSFunctionCode( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 );	// è“®ŠÖ”ƒR[ƒh‚Ìo—Í‚ğŠy‚É‚·‚éŠÖ”
+void	OutputCSFunctionCode2( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 );	// è“®ŠÖ”ƒR[ƒh‚Ìo—Í‚ğŠy‚É‚·‚éŠÖ”
 
 
-// é–¢æ•°åã‚’è¿½åŠ ã™ã‚‹( æˆ»ã‚Šå€¤ï¼šåŒã˜åå‰ã®é–¢æ•°ã®æ•° )
+// ŠÖ”–¼‚ğ’Ç‰Á‚·‚é( –ß‚è’lF“¯‚¶–¼‘O‚ÌŠÖ”‚Ì” )
 int AddFunctionName( const char *Name )
 {
 	int i ;
 
-	// æ—¢ã«åŒã˜é–¢æ•°åãŒã‚ã‚‹ã‹èª¿ã¹ã‚‹
+	// Šù‚É“¯‚¶ŠÖ”–¼‚ª‚ ‚é‚©’²‚×‚é
 	for( i = 0 ; i < dat.FuncNameNum ; i ++ )
 	{
 		if( strcmp( dat.FuncName[ i ].Name, Name ) == 0 )
 			break ;
 	}
 
-	// ç„¡ã‹ã£ãŸã‚‰æ–°è¦ã«è¿½åŠ 
+	// –³‚©‚Á‚½‚çV‹K‚É’Ç‰Á
 	if( i == dat.FuncNameNum )
 	{
 		dat.FuncName[ dat.FuncNameNum ].Counter = 1 ;
@@ -371,13 +371,13 @@ int AddFunctionName( const char *Name )
 	}
 	else
 	{
-		// ã‚ã£ãŸã‚‰åŒåé–¢æ•°ã®æ•°ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+		// ‚ ‚Á‚½‚ç“¯–¼ŠÖ”‚Ì”‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
 		dat.FuncName[ i ].Counter ++ ;
 		return dat.FuncName[ i ].Counter ;
 	}
 }
 
-// æŒ‡å®šã®é–¢æ•°ã‚’ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹( 0:ã‚¹ã‚­ãƒƒãƒ—ã—ãªã„  1:DLLã«ã®ã¿å‡ºåŠ›ã™ã‚‹  2:ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ )
+// w’è‚ÌŠÖ”‚ğƒXƒLƒbƒv‚·‚é‚©‚Ç‚¤‚©‚ğ’²‚×‚é( 0:ƒXƒLƒbƒv‚µ‚È‚¢  1:DLL‚É‚Ì‚İo—Í‚·‚é  2:ƒXƒLƒbƒv‚·‚é )
 int CheckSkipFunc( char *str )
 {
 	int i;
@@ -397,7 +397,7 @@ int CheckSkipFunc( char *str )
 	return 0;
 }
 
-// æŒ‡å®šã®ãƒã‚¯ãƒ­ã‚’ç„¡è¦–ã™ã‚‹ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹( true:ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹  false:ã‚¹ã‚­ãƒƒãƒ—ã—ãªã„ )
+// w’è‚Ìƒ}ƒNƒ‚ğ–³‹‚·‚é‚©‚Ç‚¤‚©‚ğ’²‚×‚é( true:ƒXƒLƒbƒv‚·‚é  false:ƒXƒLƒbƒv‚µ‚È‚¢ )
 bool CheckSkipDefine( char *str )
 {
 	int i;
@@ -414,7 +414,7 @@ bool CheckSkipDefine( char *str )
 	return false;
 }
 
-// å‹ã‹ã‚‰ãã®é–¢æ•°ã‚’C#ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã«å‡ºåŠ›ã™ã¹ãã‹ã‚’èª¿ã¹ã‚‹( true:å‡ºåŠ›ã—ãªã„  false:å‡ºåŠ›ã™ã‚‹ )
+// Œ^‚©‚ç‚»‚ÌŠÖ”‚ğC#‚ÌƒvƒƒOƒ‰ƒ€‚Éo—Í‚·‚×‚«‚©‚ğ’²‚×‚é( true:o—Í‚µ‚È‚¢  false:o—Í‚·‚é )
 bool CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdecl )
 {
 	char *base;
@@ -423,7 +423,7 @@ bool CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdec
 	base = txt->getpos();
 	txt->getstr( Str );
 
-	// const ã®æ–‡å­—åˆ—ã¯ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹
+	// const ‚Ì•¶š—ñ‚ÍƒXƒLƒbƒv‚·‚é
 	if( strcmp( Str, "const" ) == 0 )
 	{
 		txt->getstr( Str );
@@ -433,17 +433,17 @@ bool CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdec
 	txt->getstr( Str3 );
 	txt->move( base );
 
-	// ãƒã‚¤ãƒ³ã‚¿ã®ãƒã‚¤ãƒ³ã‚¿ã¯ã‚¹ã‚­ãƒƒãƒ—å¯¾è±¡
+	// ƒ|ƒCƒ“ƒ^‚Ìƒ|ƒCƒ“ƒ^‚ÍƒXƒLƒbƒv‘ÎÛ
 	if( strcmp( Str2, "*" ) == 0 && strcmp( Str3, "*" ) == 0 ) return true;
 
-	// å¯å¤‰é•·å¼•æ•°ã®å ´åˆã¯å‘¼ã³å‡ºã—è¦ç´„ã‚’ cdcel ã«ã™ã‚‹
+	// ‰Â•Ï’·ˆø”‚Ìê‡‚ÍŒÄ‚Ño‚µ‹K–ñ‚ğ cdcel ‚É‚·‚é
 	if( strcmp( Str, "..." ) == 0 )
 	{
 		*is_cdecl = true;
 		return false;
 	}
 
-	// ä»¥ä¸‹ã®å‹ã‚‚ã‚¹ã‚­ãƒƒãƒ—å¯¾è±¡
+	// ˆÈ‰º‚ÌŒ^‚àƒXƒLƒbƒv‘ÎÛ
 	if( strcmp( Str, "HMODULE" ) == 0 ) return true;
 //	if( strcmp( Str, "HWND" ) == 0 ) return true;
 	if( strcmp( Str, "HDC" ) == 0 ) return true;
@@ -459,17 +459,17 @@ bool CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdec
 	if( strcmp( Str, "STREAMDATA" ) == 0 ) return true;
 	if( function == false && strncmp( Str, "D_", 2 ) == 0 ) return true;
 
-	// é–¢æ•°ã®æˆ»ã‚Šå€¤ã®å‹ãƒã‚§ãƒƒã‚¯ã‹ã©ã†ã‹ã§å‡¦ç†ã‚’åˆ†å²
+	// ŠÖ”‚Ì–ß‚è’l‚ÌŒ^ƒ`ƒFƒbƒN‚©‚Ç‚¤‚©‚Åˆ—‚ğ•ªŠò
 	if( function )
 	{
-		// const TCHAR * ã ã£ãŸã‚‰ï¼¯ï¼«
+		// const TCHAR * ‚¾‚Á‚½‚ç‚n‚j
 		if( strcmp( Str, "TCHAR" ) == 0 &&
 			strcmp( Str2, "*" ) == 0 )
 		{
 			return false ;
 		}
 
-		// ãƒã‚¤ãƒ³ã‚¿ã‚’è¿”ã™é–¢æ•°ã¯å‹æ¬¡ç¬¬ã§ã¯ unsafe ã®ã¿æœ‰åŠ¹
+		// ƒ|ƒCƒ“ƒ^‚ğ•Ô‚·ŠÖ”‚ÍŒ^Ÿ‘æ‚Å‚Í unsafe ‚Ì‚İ—LŒø
 		if( strcmp( Str2, "*" ) == 0 &&
 			strcmp( Str, "D_IDirect3DDevice9" ) != 0 &&
 			strcmp( Str, "D_IDirect3DSurface9" ) != 0 &&
@@ -479,10 +479,11 @@ bool CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdec
 			*unsafe = true ;
 		}
 
-		// é–¢æ•°ã®æˆ»ã‚Šå€¤ãŒä»¥ä¸‹ã®å‹ä»¥å¤–ã®å ´åˆã¯ã‚¹ã‚­ãƒƒãƒ—
+		// ŠÖ”‚Ì–ß‚è’l‚ªˆÈ‰º‚ÌŒ^ˆÈŠO‚Ìê‡‚ÍƒXƒLƒbƒv
 		if( strcmp( Str, "DWORD_PTR" ) != 0 &&
 			strcmp( Str, "DWORD" ) != 0 &&
 			strcmp( Str, "HWND" ) != 0 &&
+			strcmp( Str, "TCHAR" ) != 0 &&
 			strcmp( Str, "int" ) != 0 &&
 			strcmp( Str, "void" ) != 0 &&
 			strcmp( Str, "float" ) != 0 &&
@@ -509,7 +510,7 @@ bool CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdec
 	}
 	else
 	{
-		// IPDATA ã®ãƒã‚¤ãƒ³ã‚¿ã¯ unsafe ã®ã¿æœ‰åŠ¹
+		// IPDATA ‚Ìƒ|ƒCƒ“ƒ^‚Í unsafe ‚Ì‚İ—LŒø
 		if( ( strcmp( Str, "IPDATA_IPv6" ) == 0 && strcmp( Str2, "*" ) == 0 ) || 
 			( strcmp( Str, "IPDATA" ) == 0 && strcmp( Str2, "*" ) == 0 ) /* || 
 			( strcmp( Str, "void" ) == 0   && strcmp( Str2, "*" ) == 0 ) */ )
@@ -521,10 +522,10 @@ bool CheckSkipType( TextAnalyse *txt, bool function, bool *unsafe, bool *is_cdec
 	return false;
 }
 
-// æŒ‡å®šã®æ§‹é€ ä½“ã®ä¸­èº«ã‹ã‚‰ç„¡è¦–ã™ã‚‹æ§‹é€ ä½“ã‹ã©ã†ã‹ã‚’åˆ¤æ–­ã™ã‚‹( true:ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹  false:ã‚¹ã‚­ãƒƒãƒ—ã—ãªã„ )
+// w’è‚Ì\‘¢‘Ì‚Ì’†g‚©‚ç–³‹‚·‚é\‘¢‘Ì‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é( true:ƒXƒLƒbƒv‚·‚é  false:ƒXƒLƒbƒv‚µ‚È‚¢ )
 bool CheckSkipStruct( char *source )
 {
-	// æ§‹é€ ä½“ã®ä¸­ã«ä»¥ä¸‹ã®æ–‡å­—åˆ—ãŒå«ã¾ã‚Œã¦ã„ãŸã‚‰å‡ºåŠ›ã—ãªã„
+	// \‘¢‘Ì‚Ì’†‚ÉˆÈ‰º‚Ì•¶š—ñ‚ªŠÜ‚Ü‚ê‚Ä‚¢‚½‚ço—Í‚µ‚È‚¢
 	if( strstr( source, "union" ) ) return true;
 	if( strstr( source, "struct" ) ) return true;
 	if( strstr( source, "[" ) ) return true;
@@ -536,10 +537,10 @@ bool CheckSkipStruct( char *source )
 	return false;
 }
 
-// æŒ‡å®šã®æ–‡å­—åˆ—ã‹ã‚‰æ•°å­—åˆã¯è­˜åˆ¥å­ã‚’æŠœãå‡ºã™
+// w’è‚Ì•¶š—ñ‚©‚ç”š–”‚Í¯•Êq‚ğ”²‚«o‚·
 void GetNumberOrIdentifier( char *src, char *dest )
 {
-	// æŒ‡å®šã®æ–‡å­—åˆ—ã‹ã‚‰è­˜åˆ¥å­ã«ä½¿ç”¨ã™ã‚‹ã“ã¨ãŒã§ãã‚‹æ–‡å­—ã®ã¿ã‚’æŠœãå‡ºã™
+	// w’è‚Ì•¶š—ñ‚©‚ç¯•Êq‚Ég—p‚·‚é‚±‚Æ‚ª‚Å‚«‚é•¶š‚Ì‚İ‚ğ”²‚«o‚·
 	for(;;)
 	{
 		if( *src == '\0' ) break;
@@ -556,7 +557,7 @@ void GetNumberOrIdentifier( char *src, char *dest )
 	*dest = '\0';
 }
 
-// C++ ç”¨ã®å‹æ–‡å­—åˆ—ã‚’ C# ç”¨ã®å‹æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹( æˆ»ã‚Šå€¤ï¼šå‹ã®ã‚µã‚¤ã‚º( byteæ•° ) )
+// C++ —p‚ÌŒ^•¶š—ñ‚ğ C# —p‚ÌŒ^•¶š—ñ‚É•ÏŠ·‚·‚é( –ß‚è’lFŒ^‚ÌƒTƒCƒY( byte” ) )
 int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, char *CPPType, bool *pOutFlag, bool Struct, bool Unsafe, bool Function, bool *TCHARretFlag )
 {
 	char Str1[256], Str2[256], Str3[256], Str4[256];
@@ -565,7 +566,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 	char *start;
 	bool is_const;
 
-	// æ–‡å­—åˆ—ç”¨é…åˆ—åˆæœŸåŒ–
+	// •¶š—ñ—p”z—ñ‰Šú‰»
 	memset( Str1, 0, sizeof( Str1 ) );
 	memset( Str2, 0, sizeof( Str2 ) );
 	memset( Str3, 0, sizeof( Str3 ) );
@@ -577,16 +578,16 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 	txt->getstr( Str4 );
 	txt->move( start );
 
-	// æœ€åˆã¯ const TCHAR * ãŒæˆ»ã‚Šå€¤ã§ã¯ãªã„ã€ã«ã—ã¦ãŠã
+	// Å‰‚Í const TCHAR * ‚ª–ß‚è’l‚Å‚Í‚È‚¢A‚É‚µ‚Ä‚¨‚­
 	if( TCHARretFlag ) *TCHARretFlag = false ;
 
-	// æœ€åˆã¯ out ã‚¿ã‚¤ãƒ—ã§ã¯ãªã„ã€ã«ã—ã¦ãŠã
+	// Å‰‚Í out ƒ^ƒCƒv‚Å‚Í‚È‚¢A‚É‚µ‚Ä‚¨‚­
 	if( pOutFlag ) *pOutFlag = false;
 
-	// C# ã§ã®å‹ã‚’å–å¾—ã™ã‚‹å‡¦ç†
+	// C# ‚Å‚ÌŒ^‚ğæ“¾‚·‚éˆ—
 	for(;;)
 	{
-		// const ãŒä»˜ãå ´åˆã¯åˆ¥å‡¦ç†
+		// const ‚ª•t‚­ê‡‚Í•Êˆ—
 		is_const = false;
 		if( strcmp( Str1, "const" ) == 0 )
 		{
@@ -601,7 +602,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 			txt->getstr( Str4 );
 			txt->move( start );
 
-			// const void * ã®å ´åˆã¯ç‰¹æ®Šãªã®ã§ã“ã“ã§å‡¦ç†ã—ã¦ã—ã¾ã†
+			// const void * ‚Ìê‡‚Í“Áê‚È‚Ì‚Å‚±‚±‚Åˆ—‚µ‚Ä‚µ‚Ü‚¤
 			if( strcmp( Str1, "void" ) == 0 && strcmp( Str2, "*" ) == 0 )
 			{
 				txt->getstr( Str4 );
@@ -613,7 +614,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 				return 4;
 			}
 
-			// const IMEINPUTCLAUSEDATA * ã®å ´åˆã¯ç‰¹æ®Šãªã®ã§ã“ã“ã§å‡¦ç†ã—ã¦ã—ã¾ã†
+			// const IMEINPUTCLAUSEDATA * ‚Ìê‡‚Í“Áê‚È‚Ì‚Å‚±‚±‚Åˆ—‚µ‚Ä‚µ‚Ü‚¤
 			if( strcmp( Str1, "IMEINPUTCLAUSEDATA" ) == 0 && strcmp( Str2, "*" ) == 0 && Struct )
 			{
 				txt->getstr( Str4 );
@@ -624,7 +625,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 				return 4;
 			}
 
-			// const COLORDATA * ã®å ´åˆã¯ç‰¹æ®Šãªã®ã§ã“ã“ã§å‡¦ç†ã—ã¦ã—ã¾ã†
+			// const COLORDATA * ‚Ìê‡‚Í“Áê‚È‚Ì‚Å‚±‚±‚Åˆ—‚µ‚Ä‚µ‚Ü‚¤
 			if( strcmp( Str1, "COLORDATA" ) == 0 && strcmp( Str2, "*" ) == 0 && Struct )
 			{
 				txt->getstr( Str4 );
@@ -635,7 +636,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 				return 4;
 			}
 
-			// const char ** ã‚„ const char * ã®å ´åˆã¯ç‰¹æ®Šãªã®ã§ã“ã“ã§å‡¦ç†ã—ã¦ã—ã¾ã†
+			// const char ** ‚â const char * ‚Ìê‡‚Í“Áê‚È‚Ì‚Å‚±‚±‚Åˆ—‚µ‚Ä‚µ‚Ü‚¤
 			if( strcmp( Str1, "char" ) == 0 || strcmp( Str1, "TCHAR" ) == 0 )
 			{
 				if( strcmp( Str2, "*" ) == 0 && strcmp( Str3, "*" ) == 0 )
@@ -654,14 +655,14 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 					txt->getstr( Str4 );
 					sprintf( CPPType, "const %s *", Str1 );
 
-					// æ§‹é€ ä½“ã®å ´åˆã¯ uint
+					// \‘¢‘Ì‚Ìê‡‚Í uint
 					if( Struct )
 					{
 						strcpy( CSType, "uint " );
 						strcpy( CSTypeName, "uint" );
 					}
 					else
-					// é–¢æ•°ã®å ´åˆã¯ System.IntPtr
+					// ŠÖ”‚Ìê‡‚Í System.IntPtr
 					if( Function )
 					{
 						*TCHARretFlag = true ;
@@ -678,7 +679,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 			}
 		}
 
-		// unsigned ãŒä»˜ãå ´åˆã®å‡¦ç†
+		// unsigned ‚ª•t‚­ê‡‚Ìˆ—
 		if( strcmp( Str1, "unsigned" ) == 0 )
 		{
 			cppobj_usenum = 2;
@@ -711,7 +712,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 			break;
 		}
 
-		// DWORD ã¯ GetColor ã®é–¢æ•°ã®æˆ»ã‚Šå€¤ã‹ã©ã†ã‹ã§å‡¦ç†ã‚’åˆ†å²
+		// DWORD ‚Í GetColor ‚ÌŠÖ”‚Ì–ß‚è’l‚©‚Ç‚¤‚©‚Åˆ—‚ğ•ªŠò
 		if( strcmp( Str1, "DWORD" ) == 0 )
 		{
 //			if( strcmp( Str2, "GetColor" ) == 0 )
@@ -726,7 +727,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 			break;
 		}
 
-		// ãã®ä»–ã®ä¸€èˆ¬çš„ãªå¤‰æ›ã¯ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½¿ã£ã¦è¡Œã†
+		// ‚»‚Ì‘¼‚Ìˆê”Ê“I‚È•ÏŠ·‚Íƒe[ƒuƒ‹‚ğg‚Á‚Äs‚¤
 		for( k = 0 ; TypeInfoDim[ k ].CPPName ; k ++ )
 		{
 			if( strcmp( TypeInfoDim[ k ].CPPName, Str1 ) == 0 ) break ;
@@ -736,7 +737,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 			k = k ;
 		}
 
-		// ãƒ†ãƒ¼ãƒ–ãƒ«ã®ä¸­ã‹ã‚‰è¦‹ã¤ã‹ã£ãŸå ´åˆã¯ãã®æƒ…å ±ã‚’ã‚»ãƒƒãƒˆ
+		// ƒe[ƒuƒ‹‚Ì’†‚©‚çŒ©‚Â‚©‚Á‚½ê‡‚Í‚»‚Ìî•ñ‚ğƒZƒbƒg
 		if( TypeInfoDim[ k ].CPPName != NULL )
 		{
 			strcpy( cstype, TypeInfoDim[ k ].CSName == NULL ? TypeInfoDim[ k ].CPPName : TypeInfoDim[ k ].CSName ) ;
@@ -744,7 +745,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 		}
 		else
 		{
-			// è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã®å‡¦ç†
+			// Œ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚Ìˆ—
 			if( UseSize == true )
 			{
 				printf( "%s error\n", Str1 );
@@ -757,7 +758,7 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 		break;
 	}
 
-	// C++ ã®å‹æ–‡å­—åˆ—ã‚’ä½œæˆ
+	// C++ ‚ÌŒ^•¶š—ñ‚ğì¬
 	strcpy( CPPType, "" );
 	if( is_const )
 	{
@@ -770,12 +771,12 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 		strcat( CPPType, " " );
 	}
 
-	// ã‚‚ã—ãƒã‚¤ãƒ³ã‚¿ã®å ´åˆã¯å‡¦ç†ã‚’åˆ†å²
+	// ‚à‚µƒ|ƒCƒ“ƒ^‚Ìê‡‚Íˆ—‚ğ•ªŠò
 	if( txt->nextchar() == '*' )
 	{
 		txt->getstr( Str1 );
 
-		// æ§‹é€ ä½“ã®ãƒ¡ãƒ³ãƒå¤‰æ•°ã®å ´åˆã¯ unsigned int å‹ã®å¤‰æ•°ã¨ã™ã‚‹
+		// \‘¢‘Ì‚Ìƒƒ“ƒo•Ï”‚Ìê‡‚Í unsigned int Œ^‚Ì•Ï”‚Æ‚·‚é
 		if( Struct )
 		{
 			strcpy( CSType, "uint " ) ;
@@ -783,14 +784,14 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 		}
 		else
 		{
-			// æ–‡å­—åˆ—ã®å ´åˆã¯ System.Text.StringBuilder å‹ã¨ã™ã‚‹
+			// •¶š—ñ‚Ìê‡‚Í System.Text.StringBuilder Œ^‚Æ‚·‚é
 			if( strcmp( cstype, "char" ) == 0 )
 			{
 				sprintf( CSType, "System.Text.StringBuilder " );
 				strcpy( CSTypeName, "System.Text.StringBuilder" );
 			}
 			else
-			// void å‹ã®å ´åˆã¯ System.IntPtr ã«
+			// void Œ^‚Ìê‡‚Í System.IntPtr ‚É
 			if( strcmp( cstype, "void" ) == 0 )
 			{
 //				sprintf( CSType, "void * " );
@@ -798,20 +799,20 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 				strcpy( CSTypeName, "System.IntPtr" );
 			}
 			else
-			// å‡ºåŠ›ãŒ System.IntPtr ã®å ´åˆã¯ãã®ã¾ã¾å‡ºåŠ›
+			// o—Í‚ª System.IntPtr ‚Ìê‡‚Í‚»‚Ì‚Ü‚Üo—Í
 			if( strcmp( cstype, "System.IntPtr" ) == 0 )
 			{
 				strcpy( CSType, cstype ) ;
 			}
 			else
-			// ãã‚Œä»¥å¤–ã®å ´åˆã§ unsafe ã®å ´åˆã¯ãã®ã¾ã¾ãƒã‚¤ãƒ³ã‚¿ã¨ã™ã‚‹
+			// ‚»‚êˆÈŠO‚Ìê‡‚Å unsafe ‚Ìê‡‚Í‚»‚Ì‚Ü‚Üƒ|ƒCƒ“ƒ^‚Æ‚·‚é
 			if( Unsafe )
 			{
 				sprintf( CSType, "%s * ", cstype );
 				strcpy( CSTypeName, cstype );
 			}
 			else
-			// unsafe ã§ã¯ãªã„å ´åˆã¯ out ä»˜ãã®å‹ã¨ã™ã‚‹
+			// unsafe ‚Å‚Í‚È‚¢ê‡‚Í out •t‚«‚ÌŒ^‚Æ‚·‚é
 			{
 				sprintf( CSType, "out %s ", cstype );
 				strcpy( CSTypeName, cstype );
@@ -819,32 +820,32 @@ int TypeConv( TextAnalyse *txt, char *CSType, char *CSTypeName, bool UseSize, ch
 			if( pOutFlag ) *pOutFlag = true;
 		}
 
-		// ãƒã‚¤ãƒ³ã‚¿ã®å ´åˆã¯ã‚µã‚¤ã‚ºã¯ 4byte
+		// ƒ|ƒCƒ“ƒ^‚Ìê‡‚ÍƒTƒCƒY‚Í 4byte
 		typebytes = 4;
 
-		// C++ ã®å‹ã«ã¯æ™®é€šã« * ã‚’è¿½åŠ ã™ã‚‹
+		// C++ ‚ÌŒ^‚É‚Í•’Ê‚É * ‚ğ’Ç‰Á‚·‚é
 		strcat( CPPType, "* " );
 	}
 	else
 	{
-		// ãƒã‚¤ãƒ³ã‚¿ã§ã¯ãªã„å ´åˆã¯å¾—ã‚‰ã‚ŒãŸå‹ã‚’ãã®ã¾ã¾è¿”ã™
+		// ƒ|ƒCƒ“ƒ^‚Å‚Í‚È‚¢ê‡‚Í“¾‚ç‚ê‚½Œ^‚ğ‚»‚Ì‚Ü‚Ü•Ô‚·
 		sprintf( CSType, "%s ", cstype );
 		strcpy( CSTypeName, cstype );
 	}
 
-	// å‹ã®ã‚µã‚¤ã‚ºã‚’è¿”ã™
+	// Œ^‚ÌƒTƒCƒY‚ğ•Ô‚·
 	return typebytes;
 }
 
-// ï¼‘ï¼–é€²æ•°ã®æ–‡å­—åˆ—ã‚’ï¼‘ï¼é€²æ•°ã®æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
+// ‚P‚Ui”‚Ì•¶š—ñ‚ğ‚P‚Oi”‚Ì•¶š—ñ‚É•ÏŠ·‚·‚é
 void Conv16To10( char *src, char *dest )
 {
-	// 16é€²æ•°ã®æ–‡å­—åˆ—ã§ã¯ãªã‹ã£ãŸã‚‰ãŸã ã‚³ãƒ”ãƒ¼ã™ã‚‹ã ã‘
+	// 16i”‚Ì•¶š—ñ‚Å‚Í‚È‚©‚Á‚½‚ç‚½‚¾ƒRƒs[‚·‚é‚¾‚¯
 	if( src[0] == '0' && src[1] == 'x' )
 	{
 		int i, j, num[16], digit, total;
 
-		// å„æ¡ã®æ•°å€¤ã‚’å¾—ã‚‹
+		// ŠeŒ…‚Ì”’l‚ğ“¾‚é
 		src += 2;
 		i = 0;
 		for( i = 0; *src != '\0'; src++, i++)
@@ -865,7 +866,7 @@ void Conv16To10( char *src, char *dest )
 		}
 		digit = i;
 
-		// æ•°å€¤ã‚’å¾—ã‚‹
+		// ”’l‚ğ“¾‚é
 		j = 0;
 		total = 0;
 		for( i = 0; i < digit; i ++, j += 4 )
@@ -873,7 +874,7 @@ void Conv16To10( char *src, char *dest )
 			total |= num[digit-1-i] << j;
 		}
 
-		// 10é€²æ•°ã®æ–‡å­—åˆ—ã‚’å¾—ã‚‹
+		// 10i”‚Ì•¶š—ñ‚ğ“¾‚é
 		_itoa( total, dest, 10 );
 	}
 	else
@@ -882,7 +883,7 @@ void Conv16To10( char *src, char *dest )
 	}
 }
 
-// æŒ‡å®šã®æ–‡å­—åˆ—ä¸­ã®æ§‹æ–‡é–“ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒã‚ã‚‹æ–‡å­—åˆ—ã«å¤‰æ›ã™ã‚‹
+// w’è‚Ì•¶š—ñ’†‚Ì\•¶ŠÔ‚ÉƒXƒy[ƒX‚ª‚ ‚é•¶š—ñ‚É•ÏŠ·‚·‚é
 int ConvTokenStr( int bufferPos, char *buffer, char *src )
 {
 	for(;;)
@@ -911,7 +912,7 @@ int ConvTokenStr( int bufferPos, char *buffer, char *src )
 	}
 }
 
-// æ§‹æ–‡é–“ã«ã‚¹ãƒšãƒ¼ã‚¹ãŒã‚ã‚‹æ–‡å­—åˆ—ã‚’ä½œæˆã™ã‚‹
+// \•¶ŠÔ‚ÉƒXƒy[ƒX‚ª‚ ‚é•¶š—ñ‚ğì¬‚·‚é
 void CreateTokenStr( void )
 {
 	char str1[256] ;
@@ -920,7 +921,7 @@ void CreateTokenStr( void )
 	dat.Struct   = (char *)malloc( 1024 * 1024 * 16 );
 	dat.Function = (char *)malloc( 1024 * 1024 * 16 );
 
-	// æ§‹é€ ä½“ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹ã¨ã“ã‚ã¾ã§ç§»å‹•ã™ã‚‹
+	// \‘¢‘Ì‚ª’è‹`‚³‚ê‚Ä‚¢‚é‚Æ‚±‚ë‚Ü‚ÅˆÚ“®‚·‚é
 	dhtxt.reset() ;
 	dhtxt.search( "DX_STRUCT_START" );
 	pos = 0;
@@ -943,7 +944,7 @@ void CreateTokenStr( void )
 	dat.Function[pos] = '\0';
 }
 
-// äºŒã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿ã«åŒã˜å†…å®¹ã‚’ãƒ—ãƒªãƒ³ãƒˆå‡ºåŠ›ã™ã‚‹
+// “ñ‚Â‚Ìƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚É“¯‚¶“à—e‚ğƒvƒŠƒ“ƒgo—Í‚·‚é
 void fprintf2( FILE *fp1, FILE *fp2, const char *FormatStr, ... )
 {
 	va_list VaList;
@@ -957,7 +958,7 @@ void fprintf2( FILE *fp1, FILE *fp2, const char *FormatStr, ... )
 	fprintf( fp2, String );
 }
 
-// å››ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¤ãƒ³ã‚¿ã«åŒã˜å†…å®¹ã‚’ãƒ—ãƒªãƒ³ãƒˆå‡ºåŠ›ã™ã‚‹
+// l‚Â‚Ìƒtƒ@ƒCƒ‹ƒ|ƒCƒ“ƒ^‚É“¯‚¶“à—e‚ğƒvƒŠƒ“ƒgo—Í‚·‚é
 void fprintf4( FILE *fp1, FILE *fp2, FILE *fp3, FILE *fp4, const char *FormatStr, ... )
 {
 	va_list VaList;
@@ -973,38 +974,38 @@ void fprintf4( FILE *fp1, FILE *fp2, FILE *fp3, FILE *fp4, const char *FormatStr
 	fprintf( fp4, String );
 }
 
-// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®å®šæ•°å®šç¾©ã‚’å‡ºåŠ›ã™ã‚‹
+// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì’è”’è‹`‚ğo—Í‚·‚é
 void OutputDefineStr( FILE *cs, FILE *csW )
 {
 	char Str[256], Str2[256] ;
 
-	// TRUE ã¨ FALSE ã®å®šç¾©ã‚’å‡ºåŠ›
+	// TRUE ‚Æ FALSE ‚Ì’è‹`‚ğo—Í
 	fprintf2( cs, csW, "\t\tpublic const int TRUE  = 1;\n" );
 	fprintf2( cs, csW, "\t\tpublic const int FALSE = 0;\n" );
 
-	// define éƒ¨åˆ†ã¾ã§é£›ã¶
+	// define •”•ª‚Ü‚Å”ò‚Ô
 	dhtxt.reset();
 	dhtxt.search( "DX_DEFINE_START" );
 	for(;;)
 	{
-		// #define ã‚’æ¢ã™
+		// #define ‚ğ’T‚·
 		dhtxt.getstr( Str );
 		if( strcmp( Str, "#define" ) == 0 )
 		{
-			// DX_DEFINE_END ã ã£ãŸã‚‰çµ‚äº†
+			// DX_DEFINE_END ‚¾‚Á‚½‚çI—¹
 			dhtxt.getstr( Str );
 			if( strcmp( Str, "DX_DEFINE_END" ) == 0 ) break;
 
-			// ç„¡è¦–ã™ã‚‹ãƒã‚¯ãƒ­ã ã£ãŸå ´åˆã¯ continue
+			// –³‹‚·‚éƒ}ƒNƒ‚¾‚Á‚½ê‡‚Í continue
 			if( CheckSkipDefine( Str ) ) continue;
 
-			// å®šæ•°åã®å‡ºåŠ›
+			// ’è”–¼‚Ìo—Í
 			fprintf2( cs, csW, "\t\tpublic const int %s = ", Str );
 
-			// å®šæ•°éƒ¨åˆ†ã®å–å¾—
+			// ’è”•”•ª‚Ìæ“¾
 			dhtxt.getstr( Str );
 
-			// ( ã ã£ãŸå ´åˆã¯ ) ãŒã‚ã‚‹éƒ¨åˆ†ã¾ã§å‡ºåŠ›
+			// ( ‚¾‚Á‚½ê‡‚Í ) ‚ª‚ ‚é•”•ª‚Ü‚Åo—Í
 			if( strcmp( Str, "(" ) == 0 )
 			{
 				fprintf2( cs, csW, "( " );
@@ -1017,7 +1018,7 @@ void OutputDefineStr( FILE *cs, FILE *csW )
 				fprintf2( cs, csW, " );\n" );
 			}
 			else
-			// ( ã‹æ•°å€¤ã ã£ãŸå ´åˆã¯æ•°å€¤éƒ¨åˆ†ã®ã¿ã‚’æŠœãå‡ºã—ã€ï¼‘ï¼–é€²æ•°ã®æ•°å€¤ã‚’ï¼‘ï¼é€²æ•°ã«å¤‰æ›ã—ã¦å‡ºåŠ›
+			// ( ‚©”’l‚¾‚Á‚½ê‡‚Í”’l•”•ª‚Ì‚İ‚ğ”²‚«o‚µA‚P‚Ui”‚Ì”’l‚ğ‚P‚Oi”‚É•ÏŠ·‚µ‚Äo—Í
 			if( Str[0] == '(' || ( Str[0] >= '0' && Str[0] <= '9' ) )
 			{
 				GetNumberOrIdentifier( Str, Str2 );
@@ -1029,14 +1030,14 @@ void OutputDefineStr( FILE *cs, FILE *csW )
 	fprintf2( cs, csW, "\n" );
 }
 
-// æ§‹é€ ä½“éƒ¨åˆ†ã‚’å‡ºåŠ›ã™ã‚‹
+// \‘¢‘Ì•”•ª‚ğo—Í‚·‚é
 void OutputStructStr( FILE *cs, FILE *csW )
 {
 	char Str[256], Str2[2024 * 10], Str3[256], Str4[256] ;
 	char *start, *end ;
 	int count, size ;
 
-	// è‡ªå‹•å‡¦ç†ã§ã¯å‡ºåŠ›ã§ããªã„æ§‹é€ ä½“ã‚’ãƒ™ã‚¿å‡ºåŠ›
+	// ©“®ˆ—‚Å‚Ío—Í‚Å‚«‚È‚¢\‘¢‘Ì‚ğƒxƒ^o—Í
 	fprintf2( cs, csW, "\t\t[StructLayout(LayoutKind.Explicit)]\n" );
 	fprintf2( cs, csW, "\t\tpublic struct IPDATA_IPv6\n" );
 	fprintf2( cs, csW, "\t\t{\n" );
@@ -1301,26 +1302,26 @@ void OutputStructStr( FILE *cs, FILE *csW )
 	fprintf2( cs, csW, "\t\t\t[FieldOffset(248)] public TOUCHINPUTPOINT Point15;\n" );
 	fprintf2( cs, csW, "\t\t};\n\n" );
 
-	// è§£æå‡¦ç†
+	// ‰ğÍˆ—
 	dhtxt.reset();
 	ttxt.setmem( dat.Struct );
 	for(;;)
 	{
-		// struct ã‚’æ¢ã™
+		// struct ‚ğ’T‚·
 		if( ttxt.getstr( Str ) == false ) break;
 		if( strcmp( Str, "struct" ) == 0 )
 		{
-			// æ§‹é€ ä½“ã®ä¸­èº«ã®æ–‡å­—åˆ—ã‚’ä¸¸ã”ã¨ Str2 ã«ã‚³ãƒ”ãƒ¼ã™ã‚‹
+			// \‘¢‘Ì‚Ì’†g‚Ì•¶š—ñ‚ğŠÛ‚²‚Æ Str2 ‚ÉƒRƒs[‚·‚é
 			start = ttxt.getpos();
 			ttxt.skipgroup( "{", "}" );
 			end = ttxt.getpos();
 			strncpy( Str2, start, end - start );
 			Str2[end-start] = '\0';
 
-			// æ§‹é€ ä½“ã®ä¸­èº«ã‹ã‚‰ç„¡è¦–ã™ã‚‹æ§‹é€ ä½“ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
+			// \‘¢‘Ì‚Ì’†g‚©‚ç–³‹‚·‚é\‘¢‘Ì‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚·‚é
 			if( CheckSkipStruct( Str2 ) ) continue;
 
-			// æ§‹é€ ä½“å®šç¾©ã®å‡ºåŠ›
+			// \‘¢‘Ì’è‹`‚Ìo—Í
 			ttxt.getstr( Str );
 			fprintf2( cs, csW, "\t\t[StructLayout(LayoutKind.Explicit)]\n" );
 			fprintf2( cs, csW, "\t\tpublic struct %s\n", Str );
@@ -1332,24 +1333,24 @@ void OutputStructStr( FILE *cs, FILE *csW )
 			for(;;)
 			{
 
-				// } ã«æ¥ãŸã‚‰çµ‚äº†
+				// } ‚É—ˆ‚½‚çI—¹
 				start = ttxt.getpos();
 				ttxt.getstr( Str );
 				if( strcmp( Str, "}" ) == 0 ) break;
 				ttxt.move( start );
 
-				// å‹ã‚’ C# ç”¨ã«å¤‰æ›ã™ã‚‹
+				// Œ^‚ğ C# —p‚É•ÏŠ·‚·‚é
 				size = TypeConv( &ttxt, Str2, Str4, true, Str3, NULL, true, false, false, NULL );
 				for(;;)
 				{
-					// å¤‰æ•°åã‚’å–å¾—
+					// •Ï”–¼‚ğæ“¾
 					ttxt.getstr( Str );
 
-					// å¤‰æ•°ã®å®šç¾©ã‚’å‡ºåŠ›
+					// •Ï”‚Ì’è‹`‚ğo—Í
 					fprintf2( cs, csW, "\t\t\t[FieldOffset(%d)] public %s %s;\n", count, Str2, Str );
 					count += size;
 
-					// ; ã«æ¥ãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
+					// ; ‚É—ˆ‚½‚çƒ‹[ƒv‚ğ”²‚¯‚é
 					ttxt.getstr( Str );
 					if( strcmp( Str, ";" ) == 0 ) break;
 				}
@@ -1360,7 +1361,7 @@ void OutputStructStr( FILE *cs, FILE *csW )
 	fprintf2( cs, csW, "\n" );
 }
 
-// ãƒ™ã‚¿å‡ºåŠ›ã®é–¢æ•°å®šç¾©ã‚’å‡ºåŠ›ã™ã‚‹
+// ƒxƒ^o—Í‚ÌŠÖ”’è‹`‚ğo—Í‚·‚é
 void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW )
 {
 	fprintf2( cs, csW, "\t\tpublic static VECTOR MGetTranslateElem( MATRIX InM )\n" ) ;
@@ -2405,7 +2406,7 @@ void OutputBetaFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def,
 	fprintf4( def, defW, def64, def64W, "\tdx_QTConjD\n" ) ;
 }
 
-// é–¢æ•°å®šç¾©ã‚’å‡ºåŠ›ã™ã‚‹
+// ŠÖ”’è‹`‚ğo—Í‚·‚é
 void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FILE *defW, FILE *def64, FILE *def64W, FILE *hd, FILE *hdW, FILE* monoDef )
 {
 	char Str[256], Str2[2024 * 10], Str3[256], DllFuncName[ 256 ] ;
@@ -2415,7 +2416,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 	int i, j, k, l, size, funccount;
 	FUNCTION Func;
 
-	// ãƒ™ã‚¿éƒ¨åˆ†ã®å‡ºåŠ›
+	// ƒxƒ^•”•ª‚Ìo—Í
 	OutputBetaFunctionStr( cs, csW, sc, scW, def, defW, def64, def64W, hd, hdW ) ;
 
 	ttxt.setmem( dat.Function );
@@ -2424,10 +2425,10 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 		PARAMETER *par;
 		char *FuncStart ;
 
-		// æ–‡å­—åˆ—å–å¾—
+		// •¶š—ñæ“¾
 		if( ttxt.getstr( Str ) == false ) break;
 
-		// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³é–¢æ•°ã¯ã‚¹ã‚­ãƒƒãƒ—
+		// ƒCƒ“ƒ‰ƒCƒ“ŠÖ”‚ÍƒXƒLƒbƒv
 		if( strcmp( Str, "__inline" ) == 0 )
 		{
 			ttxt.search( "{" ) ;
@@ -2435,40 +2436,40 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 			continue ;
 		}
 		else
-		// extern ä»¥å¤–ã¯ã‚¹ã‚­ãƒƒãƒ—
+		// extern ˆÈŠO‚ÍƒXƒLƒbƒv
 		if( strcmp( Str, "extern" ) != 0 )
 		{
 			continue ;
 		}
 
-		// ãƒã‚¯ãƒ­ DXLIBAPI ã‚’é£›ã°ã™
+		// ƒ}ƒNƒ DXLIBAPI ‚ğ”ò‚Î‚·
 		if( strcmp( Str, "DXLIBAPI" ) == 0 )
 		{
 			ttxt.getstr( Str );
 		}
 
-		// åŒåé–¢æ•°ã®ã‚«ã‚¦ãƒ³ã‚¿ã‚’åˆæœŸåŒ–
+		// “¯–¼ŠÖ”‚ÌƒJƒEƒ“ƒ^‚ğ‰Šú‰»
 		funccount = 0x0ccccccc ;
 
-		// ç¾åœ¨ã®æ–‡å­—åˆ—ä½ç½®ã‚’ä¿å­˜
+		// Œ»İ‚Ì•¶š—ñˆÊ’u‚ğ•Û‘¶
 		FuncStart = ttxt.getpos() ;
 
-		// unsafe ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã‚’å€’ã—ã¦ãŠã
+		// unsafe ‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO‚ğ“|‚µ‚Ä‚¨‚­
 		unsafe = false ;
 
-		// å¯å¤‰é•·å¼•æ•°ã‚’ä½¿ã†é–¢æ•°ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã‚’å€’ã—ã¦ãŠã
+		// ‰Â•Ï’·ˆø”‚ğg‚¤ŠÖ”‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO‚ğ“|‚µ‚Ä‚¨‚­
 		Func.IsVaList = false;
 
-		// C# ç”¨ã«å‡ºåŠ›ã§ããªã„æˆ»ã‚Šå€¤ã®å‹ã®å ´åˆã¯ DLL ã«ã®ã¿å‡ºåŠ›ã™ã‚‹
+		// C# —p‚Éo—Í‚Å‚«‚È‚¢–ß‚è’l‚ÌŒ^‚Ìê‡‚Í DLL ‚É‚Ì‚İo—Í‚·‚é
 		if( CheckSkipType( &ttxt, true, &unsafe, &Func.IsVaList ) == true ) goto CPPOUTONLY;
 
-		// æˆ»ã‚Šå€¤ã®å‹ã‚’å–å¾—ã™ã‚‹
+		// –ß‚è’l‚ÌŒ^‚ğæ“¾‚·‚é
 		size = TypeConv( &ttxt, Func.CSType, Func.CSTypeName, false, Func.CPPType, NULL, false, unsafe, true, &TCHARret );
 
-		// void å‹ã‹ã©ã†ã‹ã‚’ä¿å­˜ã™ã‚‹
+		// void Œ^‚©‚Ç‚¤‚©‚ğ•Û‘¶‚·‚é
 		Func.Void = size == 0;
 
-		// é–¢æ•°åã‚’å–å¾—
+		// ŠÖ”–¼‚ğæ“¾
 		ttxt.getstr( Func.Name );
 /*
 		if( strcmp( Func.Name, "BltBmpToGraph" ) == 0 )
@@ -2476,31 +2477,31 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 			size = size;
 		}
 */
-		// é–¢æ•°åã®ç™»éŒ²
+		// ŠÖ”–¼‚Ì“o˜^
 		funccount = AddFunctionName( Func.Name ) ;
 
-		// ç„¡è¦–å¯¾è±¡ã®é–¢æ•°ã‹ã©ã†ã‹ã‚’èª¿ã¹ã‚‹
+		// –³‹‘ÎÛ‚ÌŠÖ”‚©‚Ç‚¤‚©‚ğ’²‚×‚é
 		i = CheckSkipFunc( Func.Name ) ;
 
-		// å®Œå…¨ç„¡è¦–ã®å ´åˆã¯ä½•ã‚‚ã›ãšã«æ¬¡ã¸
+		// Š®‘S–³‹‚Ìê‡‚Í‰½‚à‚¹‚¸‚ÉŸ‚Ö
 		if( i == 2 ) continue ;
 
-		// æˆ»ã‚Šå€¤ãŒ 1 ã®å ´åˆã¯ DLL ã«ã®ã¿å‡ºåŠ›ã™ã‚‹
+		// –ß‚è’l‚ª 1 ‚Ìê‡‚Í DLL ‚É‚Ì‚İo—Í‚·‚é
 		if( i == 1 ) goto CPPOUTONLY;
 
-		// å¼•æ•°è§£æ
+		// ˆø”‰ğÍ
 		{
-			// å¼•æ•°ã®é–‹å§‹ä½ç½®ã‚’ä¿å­˜
+			// ˆø”‚ÌŠJnˆÊ’u‚ğ•Û‘¶
 			ttxt.getstr( Str );
 			start = ttxt.getpos();
 
-			// æœ€åˆã®ï¼’æ–‡å­—åˆ—ã‹ã‚‰å¼•æ•°ãŒç„¡ã„ã‹èª¿ã¹ã‚‹
+			// Å‰‚Ì‚Q•¶š—ñ‚©‚çˆø”‚ª–³‚¢‚©’²‚×‚é
 			ttxt.getstr( Str );
 			ttxt.getstr( Str2 );
 			ttxt.move( start );
 			if( strcmp( Str, ")" ) == 0 || ( strcmp( Str, "void" ) == 0 && strcmp( Str2, ")" ) == 0 ) )
 			{
-				// å¼•æ•°ãŒç„¡ã„å ´åˆ
+				// ˆø”‚ª–³‚¢ê‡
 				Func.DefaultNum = 0;
 				Func.ParameterNum = 0;
 				if( strcmp( Str, "void" ) == 0 )
@@ -2508,26 +2509,26 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 			}
 			else
 			{
-				// å¼•æ•°ãŒã‚ã‚‹å ´åˆ
+				// ˆø”‚ª‚ ‚éê‡
 				i = 0;
 				par = Func.Parameter;
 				Func.DefaultNum = 0;
 				for(;;)
 				{
-					// é…åˆ—ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã‚’å€’ã—ã¦ãŠã
+					// ”z—ñ‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO‚ğ“|‚µ‚Ä‚¨‚­
 					par->Array = false;
 
-					// å¼•æ•°ã®å‹ãŒ C# ã«å‡ºåŠ›ã§ãã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯
+					// ˆø”‚ÌŒ^‚ª C# ‚Éo—Í‚Å‚«‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
 					if( CheckSkipType( &ttxt, false, &unsafe, &Func.IsVaList ) == true )
 					{
 						i = -1;
 						break;
 					}
 
-					// C#ç”¨ã®å¼•æ•°ã®å‹ã‚’å¾—ã‚‹
+					// C#—p‚Ìˆø”‚ÌŒ^‚ğ“¾‚é
 					TypeConv( &ttxt, par->CSType, par->CSTypeName, false, par->CPPType, &par->Out, false, unsafe, false, NULL );
 
-					// å¼•æ•°åã‚’å–å¾—
+					// ˆø”–¼‚ğæ“¾
 					if( strncmp( par->CPPType, "...", 3 ) == 0 )
 					{
 						par->Name[ 0 ] = '\0';
@@ -2537,7 +2538,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 						ttxt.getstr( par->Name );
 					}
 
-					// out å±æ€§ã®å ´åˆã¯ã€å¼•æ•°åã®æœ«å°¾ãŒ Array ã ã£ãŸå ´åˆã¯ã€ In/Out å±æ€§ã«ã™ã‚‹
+					// out ‘®«‚Ìê‡‚ÍAˆø”–¼‚Ì––”ö‚ª Array ‚¾‚Á‚½ê‡‚ÍA In/Out ‘®«‚É‚·‚é
 					if( par->Out && strncmp( par->CSType, "out ", 4 ) == 0 )
 					{
 						int Length = strlen( par->Name );
@@ -2554,18 +2555,18 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 						}
 					}
 
-					// å‹ã®æ¬¡ã« ( ãŒã‚ã‚‹å ´åˆã¯é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ãªã®ã§ã€è‡ªå‹•å¤‰æ›ã§ã¯ C# ã«å‡ºåŠ›ã§ããªã„
+					// Œ^‚ÌŸ‚É ( ‚ª‚ ‚éê‡‚ÍŠÖ”ƒ|ƒCƒ“ƒ^‚È‚Ì‚ÅA©“®•ÏŠ·‚Å‚Í C# ‚Éo—Í‚Å‚«‚È‚¢
 					if( strcmp( par->Name, "(" ) == 0 )
 					{
 						i = -1;
 						break;
 					}
 
-					// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ãŒã‚ã‚‹ã‹ã©ã†ã‹ã®ãƒã‚§ãƒƒã‚¯
+					// ƒfƒtƒHƒ‹ƒgˆø”‚ª‚ ‚é‚©‚Ç‚¤‚©‚Ìƒ`ƒFƒbƒN
 					par->ValidDefault = false;
 					if( ttxt.nextchar() == '=' )
 					{
-						// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ã‚’å–å¾—ã™ã‚‹
+						// ƒfƒtƒHƒ‹ƒgˆø”‚ğæ“¾‚·‚é
 						ttxt.getstr( Str );
 						par->ValidDefault = true;
 						ttxt.getstr( par->Default );
@@ -2578,42 +2579,42 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 					if( strcmp( Str, ")" ) == 0 ) break;
 				}
 
-				// ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸã‚‰ DLL ã«ã®ã¿å‡ºåŠ›ã™ã‚‹
+				// ƒGƒ‰[‚ª”­¶‚µ‚½‚ç DLL ‚É‚Ì‚İo—Í‚·‚é
 				if( i == -1 )
 				{
 					goto CPPOUTONLY;
 				}
 
-				// å¼•æ•°ã®æ•°ã‚’ä¿å­˜
+				// ˆø”‚Ì”‚ğ•Û‘¶
 				Func.ParameterNum = i;
 			}
 			ttxt.getstr( Str );
 		}
 
-		// å¯å¤‰é•·å¼•æ•°ãŒã‚ã‚‹é–¢æ•°ã¯ DLL ã«ã®ã¿å‡ºåŠ›ã™ã‚‹
+		// ‰Â•Ï’·ˆø”‚ª‚ ‚éŠÖ”‚Í DLL ‚É‚Ì‚İo—Í‚·‚é
 		if( Func.IsVaList ) goto CPPOUTONLY ;
 
-		// åŒåã®é–¢æ•°ãŒè¦‹ã¤ã‹ã£ã¦ã„ãªã„å ´åˆã¯ dx_é–¢æ•°å ã‚’ DLL ã®é–¢æ•°åã«ã™ã‚‹
+		// “¯–¼‚ÌŠÖ”‚ªŒ©‚Â‚©‚Á‚Ä‚¢‚È‚¢ê‡‚Í dx_ŠÖ”–¼ ‚ğ DLL ‚ÌŠÖ”–¼‚É‚·‚é
 		if( funccount == 1 )
 		{
 			sprintf( DllFuncName, "dx_%s", Func.Name );
 		}
 		else
-		// ï¼’å€‹ç›®ä»¥ä¸Šã®å ´åˆã¯ dx_é–¢æ•°å_ä½•å€‹ç›®ã‹ ã‚’ DLL ã®é–¢æ•°åã«ã™ã‚‹
+		// ‚QŒÂ–ÚˆÈã‚Ìê‡‚Í dx_ŠÖ”–¼_‰½ŒÂ–Ú‚© ‚ğ DLL ‚ÌŠÖ”–¼‚É‚·‚é
 		{
 			sprintf( DllFuncName, "dx_%s_%d", Func.Name, funccount );
 		}
 
-		// unsafe ã®å ´åˆã¯ãƒã‚¯ãƒ­ã‚’å‡ºåŠ›ã™ã‚‹
+		// unsafe ‚Ìê‡‚Íƒ}ƒNƒ‚ğo—Í‚·‚é
 		if( unsafe )
 		{
 			fprintf2( cs, csW, "#if DX_USE_UNSAFE\n" );
 		}
 
-		// DLL ã¸ã®å‡ºåŠ›é–¢æ•°ãƒªã‚¹ãƒˆã«å‡ºåŠ›
+		// DLL ‚Ö‚Ìo—ÍŠÖ”ƒŠƒXƒg‚Éo—Í
 		fprintf4( def, defW, def64, def64W, "\t%s\n", DllFuncName ) ;
 
-		// C# ç”¨ã®é–¢æ•°å®£è¨€å‡ºåŠ›
+		// C# —p‚ÌŠÖ”éŒ¾o—Í
 		for( l = 0; l < 1; l++ )
 		{
 			const char *CallType = Func.IsVaList ? "Cdecl" : "StdCall";
@@ -2621,11 +2622,11 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 			fprintf(  cs,      "\t\t[MethodImplAttribute(MethodImplOptions.InternalCall)]\n" );
 			fprintf2( cs, csW, "\t\textern %sstatic %s %s( ", unsafe ? "unsafe " : "", Func.CSType, DllFuncName );
 
-			// å¼•æ•°éƒ¨åˆ†ã‚’å‡ºåŠ›
+			// ˆø”•”•ª‚ğo—Í
 			par = Func.Parameter;
 			for( i = 0; i < Func.ParameterNum; i ++, par ++ )
 			{
-				// å¯å¤‰é•·å¼•æ•°ã®å ´åˆã¯ __arglist ã‚’å‡ºåŠ›ã™ã‚‹
+				// ‰Â•Ï’·ˆø”‚Ìê‡‚Í __arglist ‚ğo—Í‚·‚é
 				if( strncmp( par->CPPType, "...", 3 ) == 0 )
 				{
 					fprintf2( cs, csW, "__arglist" );
@@ -2643,10 +2644,10 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 			fprintf2( cs, csW, ");\n" );
 		}
 
-		// C#ç”¨é–¢æ•°å‡ºåŠ›
+		// C#—pŠÖ”o—Í
 		{
-			// unsafe é–¢æ•°ã§ã‚‚ãªã void * ä»¥å¤–ã® out å±æ€§ã®å¼•æ•°ãŒã‚ã‚‹å ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ã¤ãé–¢æ•°ã‚’ C# ã§ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆã§ããªã„ã®ã§
-			// ãã®ã‚ˆã†ãªå¼•æ•°ãŒã‚ã‚‹ã‹ã©ã†ã‹èª¿ã¹ã‚‹
+			// unsafe ŠÖ”‚Å‚à‚È‚­ void * ˆÈŠO‚Ì out ‘®«‚Ìˆø”‚ª‚ ‚éê‡‚ÍƒfƒtƒHƒ‹ƒgˆø”‚Â‚«ŠÖ”‚ğ C# ‚ÅƒGƒ~ƒ…ƒŒ[ƒg‚Å‚«‚È‚¢‚Ì‚Å
+			// ‚»‚Ì‚æ‚¤‚Èˆø”‚ª‚ ‚é‚©‚Ç‚¤‚©’²‚×‚é
 			par = Func.Parameter ;
 			for( l = 0 ; l < Func.ParameterNum ; l ++, par ++ )
 			{
@@ -2654,7 +2655,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				{
 					if( unsafe == false || strcmp( par->CSType, "void * " ) != 0 )
 					{
-						// ã‚ã£ãŸã‚‰ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ã‚’ç„¡åŠ¹ã«ã™ã‚‹
+						// ‚ ‚Á‚½‚çƒfƒtƒHƒ‹ƒgˆø”‚ğ–³Œø‚É‚·‚é
 						Func.DefaultNum = 0;
 						par = Func.Parameter ;
 						for( k = 0 ; k < Func.ParameterNum ; k ++, par ++ )
@@ -2666,34 +2667,34 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				}
 			}
 
-			// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ç„¡ã—ã®å‡ºåŠ›ã¨ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ã‚’æŒã¤å¼•æ•°ã®æ•°ã ã‘é–¢æ•°ã‚’ä½œæˆã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã®ã§ãã®ãƒ«ãƒ¼ãƒ—
+			// ƒfƒtƒHƒ‹ƒgˆø”–³‚µ‚Ìo—Í‚ÆAƒfƒtƒHƒ‹ƒgˆø”‚ğ‚Âˆø”‚Ì”‚¾‚¯ŠÖ”‚ğì¬‚·‚é•K—v‚ª‚ ‚é‚Ì‚Å‚»‚Ìƒ‹[ƒv
 			for( j = 0 ; j <= Func.DefaultNum ; j ++ )
 			{
-				// æˆ»ã‚Šå€¤ã®å‹ã¨é–¢æ•°åã®å‡ºåŠ›
+				// –ß‚è’l‚ÌŒ^‚ÆŠÖ”–¼‚Ìo—Í
 				fprintf2( cs, csW, "\t\tpublic %sstatic %s %s( ", unsafe ? "unsafe " : "", TCHARret ? "string " : Func.CSType, Func.Name );
 
-				// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å®šç¾©ã®å‡ºåŠ›
+				// ƒpƒ‰ƒ[ƒ^’è‹`‚Ìo—Í
 				par = Func.Parameter;
 				k = 0;
 				for( i = 0; i < Func.ParameterNum; i ++, par ++ )
 				{
-					// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã¯ãã‚Œä»¥é™ã®å¼•æ•°ã®å‡ºåŠ›ã¯è¡Œã‚ãªã„
+					// ƒfƒtƒHƒ‹ƒgˆø”‚ğg—p‚·‚éê‡‚Í‚»‚êˆÈ~‚Ìˆø”‚Ìo—Í‚Ís‚í‚È‚¢
 					if( par->ValidDefault )
 					{
 						k ++ ;
 						if( k > j ) break;
 					}
 
-					// å¼•æ•°ã¨å¼•æ•°ã®é–“ã®å‡ºåŠ›
+					// ˆø”‚Æˆø”‚ÌŠÔ‚Ìo—Í
 					if( i != 0 )
 					{
 						fprintf2( cs, csW, ", " );
 					}
 
-					// å¼•æ•°ã®å‹ã¨å¼•æ•°åã®å‡ºåŠ›
+					// ˆø”‚ÌŒ^‚Æˆø”–¼‚Ìo—Í
 					if( strncmp( par->CPPType, "...", 3 ) == 0 )
 					{
-						// å¯å¤‰é•·å¼•æ•°ã®å ´åˆã¯ __arglist ã‚’å‡ºåŠ›ã™ã‚‹
+						// ‰Â•Ï’·ˆø”‚Ìê‡‚Í __arglist ‚ğo—Í‚·‚é
 						fprintf2( cs, csW, "__arglist" );
 					}
 					else
@@ -2703,10 +2704,10 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				}
 				fprintf2( cs, csW, ")\n" );
 
-				// é–¢æ•°ã®ä¸­èº«ã‚’å‡ºåŠ›
+				// ŠÖ”‚Ì’†g‚ğo—Í
 				fprintf2( cs, csW, "\t\t{\n" );
 
-				// out ã‚¿ã‚¤ãƒ—ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ã¯ã€ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã§å‡ºåŠ›ã‚’å—ã‘å–ã‚‹ã‚ˆã†ã«ã™ã‚‹
+				// out ƒ^ƒCƒv‚ÌƒfƒtƒHƒ‹ƒgˆø”‚ÍAƒ[ƒJƒ‹•Ï”‚Åo—Í‚ğó‚¯æ‚é‚æ‚¤‚É‚·‚é
 				par = Func.Parameter;
 				k = 0;
 				for( i = 0; i < Func.ParameterNum; i ++, par ++ )
@@ -2720,13 +2721,13 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				}
 
 				{
-					// TCHAR * ãŒæˆ»ã‚Šå€¤ã®å ´åˆã¯ System.IntPtr ã«æˆ»ã‚Šå€¤ã‚’ä»£å…¥ã™ã‚‹
+					// TCHAR * ‚ª–ß‚è’l‚Ìê‡‚Í System.IntPtr ‚É–ß‚è’l‚ğ‘ã“ü‚·‚é
 					if( TCHARret )
 					{
 						fprintf2( cs, csW, "\t\t\t\tSystem.IntPtr resultIntPtr = " );
 					}
 					else
-					// void å‹ã®å ´åˆã¯ return ã‚’å‡ºåŠ›ã—ãªã„
+					// void Œ^‚Ìê‡‚Í return ‚ğo—Í‚µ‚È‚¢
 					if( Func.Void == false )
 					{
 						fprintf2( cs, csW, "\t\t\t\treturn " );
@@ -2736,30 +2737,30 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 						fprintf2( cs, csW, "\t\t\t\t" );
 					}
 
-					// DLL ã®é–¢æ•°åã‚’å‡ºåŠ›
+					// DLL ‚ÌŠÖ”–¼‚ğo—Í
 					fprintf2( cs, csW, "%s( ", DllFuncName ) ;
 
-					// å¼•æ•°ã‚’å‡ºåŠ›
+					// ˆø”‚ğo—Í
 					par = Func.Parameter;
 					k = 0;
 					for( i = 0; i < Func.ParameterNum; i ++, par ++ )
 					{
-						// åŒºåˆ‡ã‚Šã® , ã‚’å‡ºåŠ›
+						// ‹æØ‚è‚Ì , ‚ğo—Í
 						if( i != 0 )
 						{
 							fprintf2( cs, csW, ", " );
 						}
 
-						// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ãŒã‚ã‚‹ã‹ã©ã†ã‹ã§åˆ†å²
+						// ƒfƒtƒHƒ‹ƒgˆø”‚ª‚ ‚é‚©‚Ç‚¤‚©‚Å•ªŠò
 						if( par->ValidDefault && k >= j )
 						{
-							// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ãŒ NULL ã‹ã©ã†ã‹ã§å‡¦ç†ã‚’åˆ†å²
+							// ƒfƒtƒHƒ‹ƒgˆø”‚ª NULL ‚©‚Ç‚¤‚©‚Åˆ—‚ğ•ªŠò
 							if( strcmp( par->Default, "NULL" ) == 0 )
 							{
-								// string ã‹ void * ã‹ System.IntPtr ã®å ´åˆã¯ null ã‚’å‡ºåŠ›
+								// string ‚© void * ‚© System.IntPtr ‚Ìê‡‚Í null ‚ğo—Í
 								if( strcmp( par->CSType, "string " ) == 0 || strcmp( par->CSType, "void * " ) == 0 || strcmp( par->CSType, "System.IntPtr " ) == 0 )
 								{
-									// System.IntPtr ã®å ´åˆã¯ã‚­ãƒ£ã‚¹ãƒˆã™ã‚‹
+									// System.IntPtr ‚Ìê‡‚ÍƒLƒƒƒXƒg‚·‚é
 									if( strcmp( par->CSType, "System.IntPtr " ) == 0 )
 									{
 										fprintf2( cs, csW, "( System.IntPtr )null " );
@@ -2770,7 +2771,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 									}
 								}
 								else
-								// ãã‚Œä»¥å¤–ã®å ´åˆã¯å¼•æ•°åã¨åŒåã®ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹ã®ã§ãã‚Œã‚’ä½¿ã†
+								// ‚»‚êˆÈŠO‚Ìê‡‚Íˆø”–¼‚Æ“¯–¼‚Ìƒ[ƒJƒ‹•Ï”‚ª’è‹`‚³‚ê‚Ä‚¢‚é‚Ì‚Å‚»‚ê‚ğg‚¤
 								if( unsafe )
 								{
 									fprintf2( cs, csW, "%s ", par->Name ) ;
@@ -2782,35 +2783,35 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 							}
 							else
 							{
-								// NULL ä»¥å¤–ã®å ´åˆã¯ãƒã‚¤ãƒ³ã‚¿ç³»ã§ã¯ãªã„ã®ã§ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆæ•°å€¤ã‚’ãã®ã¾ã¾å‡ºåŠ›ã™ã‚‹
+								// NULL ˆÈŠO‚Ìê‡‚Íƒ|ƒCƒ“ƒ^Œn‚Å‚Í‚È‚¢‚Ì‚ÅAƒfƒtƒHƒ‹ƒg”’l‚ğ‚»‚Ì‚Ü‚Üo—Í‚·‚é
 								fprintf2( cs, csW, "%s ", par->Default );
 							}
 						}
 						else
 						{
-							// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ãŒç„¡ã„å ´åˆ
+							// ƒfƒtƒHƒ‹ƒgˆø”‚ª–³‚¢ê‡
 
-							// out å±æ€§ãŒã‚ã‚‹ã‹ã©ã†ã‹ã§å‡¦ç†ã‚’åˆ†å²
+							// out ‘®«‚ª‚ ‚é‚©‚Ç‚¤‚©‚Åˆ—‚ğ•ªŠò
 							if( par->Out )
 							{
-								// out å±æ€§ã§ã‚‚ System.Text.StringBuilder ã‹ System.IntPtr ã‹ unsafe ã®å ´åˆã¯ãã®ã¾ã¾å¤‰æ•°åã‚’å‡ºåŠ›
+								// out ‘®«‚Å‚à System.Text.StringBuilder ‚© System.IntPtr ‚© unsafe ‚Ìê‡‚Í‚»‚Ì‚Ü‚Ü•Ï”–¼‚ğo—Í
 								if( strncmp( par->CSType, "System.Text.StringBuilder", strlen( "System.Text.StringBuilder" ) ) == 0 ||
 									strncmp( par->CSType, "System.IntPtr", strlen( "System.IntPtr" ) ) == 0 || unsafe )
 								{
 									fprintf2( cs, csW, "%s ", par->Name );
 								}
 								else
-								// ãã‚Œä»¥å¤–ã®å ´åˆã¯ out ã‚’ä»˜ã‘ã‚‹
+								// ‚»‚êˆÈŠO‚Ìê‡‚Í out ‚ğ•t‚¯‚é
 								{
 									fprintf2( cs, csW, "out %s ", par->Name );
 								}
 							}
 							else
 							{
-								// out å±æ€§ãŒç„¡ã„å ´åˆã¯æ™®é€šã«å‡ºåŠ›
+								// out ‘®«‚ª–³‚¢ê‡‚Í•’Ê‚Éo—Í
 								if( strncmp( par->CPPType, "...", 3 ) == 0 )
 								{
-									// å¯å¤‰é•·å¼•æ•°ã®å ´åˆã¯ __arglist ã‚’å‡ºåŠ›ã™ã‚‹
+									// ‰Â•Ï’·ˆø”‚Ìê‡‚Í __arglist ‚ğo—Í‚·‚é
 									fprintf2( cs, csW, "__arglist" );
 								}
 								else
@@ -2820,13 +2821,13 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 							}
 						}
 
-						// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ãŒã‚ã£ãŸå ´åˆã¯ã‚«ã‚¦ãƒ³ã‚¿ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+						// ƒfƒtƒHƒ‹ƒgˆø”‚ª‚ ‚Á‚½ê‡‚ÍƒJƒEƒ“ƒ^‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
 						if( par->ValidDefault )
 							k ++ ;
 					}
 					fprintf2( cs, csW, ");\n" );
 
-					// TCHAR * ãŒæˆ»ã‚Šå€¤ã®å ´åˆã¯ System.IntPtr ã‹ã‚‰ String ã‚’å‡ºåŠ›ã—ã¦è¿”ã™å‡¦ç†ã‚’è¡Œã†
+					// TCHAR * ‚ª–ß‚è’l‚Ìê‡‚Í System.IntPtr ‚©‚ç String ‚ğo—Í‚µ‚Ä•Ô‚·ˆ—‚ğs‚¤
 					if( TCHARret )
 					{
 						fprintf2( cs, csW, "\t\t\t\tif( resultIntPtr == System.IntPtr.Zero )\n" );
@@ -2845,11 +2846,11 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 			}
 		}
 
-		// DLLç”¨é–¢æ•°å‡ºåŠ›
+		// DLL—pŠÖ”o—Í
 		{
 			const char *calltype = Func.IsVaList ? "" : "";
 
-			// GetColor ã ã‘åˆ¥å‡¦ç†
+			// GetColor ‚¾‚¯•Êˆ—
 //			if( strcmp( Func.CPPType, "DWORD " ) == 0 && strcmp( Func.Name, "GetColor" ) == 0 )
 //			{
 //				fprintf( hd, "int %s dx_GetColor( ", calltype );
@@ -2857,7 +2858,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 //			}
 //			else
 			{
-				// åŒåã®é–¢æ•°ãŒã‚ã‚‹å ´åˆã¯é–¢æ•°åã®å¾Œã‚ã«ä½•å€‹ç›®ã‹ã®ç•ªå·ã‚’å‡ºåŠ›ã™ã‚‹
+				// “¯–¼‚ÌŠÖ”‚ª‚ ‚éê‡‚ÍŠÖ”–¼‚ÌŒã‚ë‚É‰½ŒÂ–Ú‚©‚Ì”Ô†‚ğo—Í‚·‚é
 				if( funccount == 1 )
 				{
 					fprintf2( hd, hdW, "%s %s dx_%s( ", Func.CPPType, calltype, Func.Name );
@@ -2870,9 +2871,9 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				}
 			}
 
-			// å¼•æ•°ã®å‡ºåŠ›
+			// ˆø”‚Ìo—Í
 			{
-				// å¼•æ•°ãŒç„¡ã„å ´åˆã¯ void ã‚’å‡ºåŠ›ã—ã¦çµ‚äº†
+				// ˆø”‚ª–³‚¢ê‡‚Í void ‚ğo—Í‚µ‚ÄI—¹
 				if( Func.ParameterNum == 0 )
 				{
 					fprintf2( hd, hdW, "void" );
@@ -2880,22 +2881,22 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				}
 				else
 				{
-					// å¼•æ•°ã‚’å‡ºåŠ›
+					// ˆø”‚ğo—Í
 					par = Func.Parameter;
 					for( i = 0; i < Func.ParameterNum; i ++, par ++ )
 					{
-						// åŒºåˆ‡ã‚Šæ–‡å­—ã®å‡ºåŠ›
+						// ‹æØ‚è•¶š‚Ìo—Í
 						if( i != 0 )
 						{
 							fprintf2( hd, hdW, ", " );
 							fprintf2( sc, scW, ", " );
 						}
 
-						// å¼•æ•°ã®å‹ã¨å¼•æ•°åã‚’å‡ºåŠ›
+						// ˆø”‚ÌŒ^‚Æˆø”–¼‚ğo—Í
 						fprintf2( hd, hdW, "%s %s", par->CPPType, par->Name );
 						fprintf2( sc, scW, "%s %s", par->CPPType, par->Name );
 
-						// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ãŒã‚ã‚‹å ´åˆã¯ãã‚Œã‚’å‡ºåŠ›
+						// ƒfƒtƒHƒ‹ƒgˆø”‚ª‚ ‚éê‡‚Í‚»‚ê‚ğo—Í
 						if( par->ValidDefault )
 						{
 							fprintf2( hd, hdW, " = %s", par->Default );
@@ -2906,14 +2907,14 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				fprintf2( sc, scW, ")\n" );
 			}
 
-			// é–¢æ•°ã®ä¸­èº«ã‚’å‡ºåŠ›
+			// ŠÖ”‚Ì’†g‚ğo—Í
 			{
 				fprintf2( sc, scW, "{\n" );
 
-				// å¯å¤‰é•·å¼•æ•°ãŒã‚ã‚‹é–¢æ•°ã®å ´åˆã¯ va_start ç­‰ã‚’å‡ºåŠ›ã™ã‚‹
+				// ‰Â•Ï’·ˆø”‚ª‚ ‚éŠÖ”‚Ìê‡‚Í va_start “™‚ğo—Í‚·‚é
 				if( Func.IsVaList )
 				{
-					// æˆ»ã‚Šå€¤ãŒã‚ã‚‹ã‹ã©ã†ã‹ã§å¤‰æ•° Result ã®æœ‰ç„¡ãŒå¤‰åŒ–ã™ã‚‹
+					// –ß‚è’l‚ª‚ ‚é‚©‚Ç‚¤‚©‚Å•Ï” Result ‚Ì—L–³‚ª•Ï‰»‚·‚é
 					if( Func.Void )
 					{
 						fprintf2( sc, scW, "\tva_list VaList;\n" ) ;
@@ -2929,7 +2930,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				}
 				else
 				{
-					// æˆ»ã‚Šå€¤ãŒ void å‹ä»¥å¤–ã®å ´åˆã¯ return ã‚’å‡ºåŠ›
+					// –ß‚è’l‚ª void Œ^ˆÈŠO‚Ìê‡‚Í return ‚ğo—Í
 					if( Func.Void )
 					{
 						fprintf2( sc, scW, "\t" );
@@ -2940,16 +2941,16 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 					}
 				}
 
-				// é–¢æ•°åã®å‡ºåŠ›
+				// ŠÖ”–¼‚Ìo—Í
 				fprintf2( sc, scW, "%s", Func.Name );
 				if( Func.IsVaList )
 				{
-					// å¯å¤‰é•·å¼•æ•°ãŒã‚ã‚‹é–¢æ•°ã®å ´åˆã¯é–¢æ•°åã®æœ«å°¾ã« _VaList ã‚’è¿½åŠ ã™ã‚‹
+					// ‰Â•Ï’·ˆø”‚ª‚ ‚éŠÖ”‚Ìê‡‚ÍŠÖ”–¼‚Ì––”ö‚É _VaList ‚ğ’Ç‰Á‚·‚é
 					fprintf2( sc, scW, "_VaList" );
 				}
 				fprintf2( sc, scW, "( " );
 
-				// å¼•æ•°ã®å‡ºåŠ›
+				// ˆø”‚Ìo—Í
 				par = Func.Parameter;
 				for( i = 0; i < Func.ParameterNum; i ++, par ++ )
 				{
@@ -2960,7 +2961,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 
 					if( strncmp( par->CPPType, "...", 3 ) == 0 )
 					{
-						// å¯å¤‰é•·å¼•æ•°ã®å ´åˆã¯ VaList ã‚’å‡ºåŠ›ã™ã‚‹
+						// ‰Â•Ï’·ˆø”‚Ìê‡‚Í VaList ‚ğo—Í‚·‚é
 						fprintf2( sc, scW, "VaList" );
 					}
 					else
@@ -2970,12 +2971,12 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				}
 				fprintf2( sc, scW, ");\n" );
 
-				// å¯å¤‰é•·å¼•æ•°ãŒã‚ã‚‹é–¢æ•°ã®å ´åˆã¯ va_end ç­‰ã‚’å‡ºåŠ›ã™ã‚‹
+				// ‰Â•Ï’·ˆø”‚ª‚ ‚éŠÖ”‚Ìê‡‚Í va_end “™‚ğo—Í‚·‚é
 				if( Func.IsVaList )
 				{
 					fprintf2( sc, scW, "\tva_end( VaList );\n" ) ;
 
-					// æˆ»ã‚Šå€¤ãŒã‚ã‚‹å ´åˆã¯ Result ã‚’è¿”ã™
+					// –ß‚è’l‚ª‚ ‚éê‡‚Í Result ‚ğ•Ô‚·
 					if( Func.Void == FALSE )
 					{
 						fprintf2( sc, scW, "\treturn Result;\n" ) ;
@@ -2986,7 +2987,7 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 			}
 		}
 
-		// unsafe ã®å ´åˆã¯ãƒã‚¯ãƒ­ã®çµ‚ç«¯ã‚’å‡ºåŠ›ã™ã‚‹
+		// unsafe ‚Ìê‡‚Íƒ}ƒNƒ‚ÌI’[‚ğo—Í‚·‚é
 		if( unsafe )
 		{
 			fprintf2( cs, csW, "#endif\n" );
@@ -2995,40 +2996,50 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 
 		continue ;
 
-		// DLL ã«ã®ã¿å‡ºåŠ›ã™ã‚‹å ´åˆ
+		// DLL ‚É‚Ì‚İo—Í‚·‚éê‡
 CPPOUTONLY:
 		ttxt.move( FuncStart ) ;
 
-		// é–¢æ•°ã®æˆ»ã‚Šå€¤ãŒ void å‹ã‹ã©ã†ã‹ã‚’ã‚»ãƒƒãƒˆ
+		// ŠÖ”‚Ì–ß‚è’l‚ª void Œ^‚©‚Ç‚¤‚©‚ğƒZƒbƒg
 		ttxt.getstr( Str ) ;
 		Func.Void = strcmp( Str, "void" ) == 0 ? 1 : 0 ;
 
-		// é–¢æ•°ã®æˆ»ã‚Šå€¤ã®å‹ã¨é–¢æ•°åã‚’å‡ºåŠ›
-		{
-			fprintf2( hd, hdW, "%s ", Str ) ;
-			fprintf2( sc, scW, "%s ", Str ) ;
+		i = 0;
 
-			// é–¢æ•°åãŒã‚ã‚‹ã¨ã“ã‚ã¾ã§æ–‡å­—åˆ—ã‚’å‡ºåŠ›
+		// ŠÖ”‚Ì–ß‚è’l‚ÌŒ^‚ÆŠÖ”–¼‚ğo—Í
+		{
+			i += sprintf(Str2 + i, "%s ", Str);
+		
+			// ŠÖ”–¼‚ª‚ ‚é‚Æ‚±‚ë‚Ü‚Å•¶š—ñ‚ğo—Í
 			for(;;)
 			{
 				ttxt.getstr( Str ) ;
 				if( Str[ 0 ] == '*' ) Func.Void = 0 ;
 				if( ttxt.nextchar() == '(' ) break ;
-				fprintf2( hd, hdW, "%s ", Str ) ;
-				fprintf2( sc, scW, "%s ", Str ) ;
+				i += sprintf(Str2 + i, "%s ", Str);
 			}
 		}
 
-		// é–¢æ•°åã‚’ä¿å­˜
+		// ŠÖ”–¼‚ğ•Û‘¶
 		strcpy( Func.Name, Str ) ;
 
-		// é–¢æ•°åç™»éŒ²ãŒã¾ã ã ã£ãŸã‚‰é–¢æ•°åã‚’ç™»éŒ²
+		j = CheckSkipFunc(Func.Name);
+
+		if (j == 2) 
+		{
+			continue;
+		}
+
+		fprintf2( hd, hdW, "%s ", Str ) ;
+		fprintf2( sc, scW, "%s ", Str ) ;
+
+		// ŠÖ”–¼“o˜^‚ª‚Ü‚¾‚¾‚Á‚½‚çŠÖ”–¼‚ğ“o˜^
 		if( funccount == 0x0ccccccc )
 		{
 			funccount = AddFunctionName( Func.Name ) ;
 		}
 
-		// DLL ã§ã®é–¢æ•°åã®ä½œæˆ
+		// DLL ‚Å‚ÌŠÖ”–¼‚Ìì¬
 		if( funccount == 1 )
 		{
 			sprintf( Str2, "dx_%s", Func.Name ) ;
@@ -3038,7 +3049,7 @@ CPPOUTONLY:
 			sprintf( Str2, "dx_%s_%d", Func.Name, funccount ) ;
 		}
 
-		// é–¢æ•°åã‚’å‡ºåŠ›
+		// ŠÖ”–¼‚ğo—Í
 		{
 			const char *calltype = Func.IsVaList ? "" : "";
 			fprintf4( def, defW, def64, def64W, "\t%s\n", Str2 ) ;
@@ -3047,13 +3058,13 @@ CPPOUTONLY:
 			fprintf( monoDef, "\tmono_add_internal_call(\"DX::%s\", (void*)%s );\n", Func.Name, Str2 );
 		}
 
-		// å¼•æ•°ã®å‡ºåŠ›
+		// ˆø”‚Ìo—Í
 		{
 			Func.ParameterNum = 0 ;
 			ttxt.getstr( Str ) ;
 			ttxt.getstr( Str ) ;
 
-			// å¼•æ•°ãŒç„¡ã„å ´åˆã¯ void ã¨ã ã‘å‡ºåŠ›ã™ã‚‹
+			// ˆø”‚ª–³‚¢ê‡‚Í void ‚Æ‚¾‚¯o—Í‚·‚é
 			if( strcmp( Str, "void" ) == 0 && ttxt.nextchar() != '*' && ttxt.nextchar() != '(' )
 			{
 				ttxt.getstr( Str ) ;
@@ -3065,7 +3076,7 @@ CPPOUTONLY:
 			{
 				for(;;)
 				{
-					// ä¸€ã¤ç›®ãŒ ... ã®å ´åˆã¯å¯å¤‰é•·å¼•æ•°ã®ç‰¹æ®Šå‡¦ç†
+					// ˆê‚Â–Ú‚ª ... ‚Ìê‡‚Í‰Â•Ï’·ˆø”‚Ì“Áêˆ—
 					if( strncmp( Str, "...", 3 ) == 0 )
 					{
 						Func.IsVaList = TRUE ;
@@ -3079,25 +3090,25 @@ CPPOUTONLY:
 					{
 						ttxt.getstr( Str2 ) ;
 
-						// ï¼“ã¤ã‚ãŒ * ã®å ´åˆã¯å‡¦ç†ã‚’åˆ†å²
+						// ‚R‚Â‚ß‚ª * ‚Ìê‡‚Íˆ—‚ğ•ªŠò
 						if( ttxt.nextchar() == '*' )
 						{
 							ttxt.getstr( Str3 ) ;
 
-							// ï¼’ã¤ç›®ãŒ ( ã®å ´åˆã¯å¼•æ•°ã¯é–¢æ•°ãƒã‚¤ãƒ³ã‚¿
+							// ‚Q‚Â–Ú‚ª ( ‚Ìê‡‚Íˆø”‚ÍŠÖ”ƒ|ƒCƒ“ƒ^
 							if( Str2[ 0 ] == '(' )
 							{
-								// é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ã®å ´åˆã¯ï¼”ã¤ç›®ãŒå¼•æ•°å
+								// ŠÖ”ƒ|ƒCƒ“ƒ^‚Ìê‡‚Í‚S‚Â–Ú‚ªˆø”–¼
 								ttxt.getstr( Func.Parameter[ Func.ParameterNum ].Name ) ;
 
-								// ) ã®å–å¾—
+								// ) ‚Ìæ“¾
 								ttxt.getstr( Str2 ) ;
 
-								// é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ã®å¼•æ•°åéƒ¨åˆ†ã®å‡ºåŠ›
+								// ŠÖ”ƒ|ƒCƒ“ƒ^‚Ìˆø”–¼•”•ª‚Ìo—Í
 								fprintf2( hd, hdW, "%s ( *%s )", Str, Func.Parameter[ Func.ParameterNum ].Name ) ;
 								fprintf2( sc, scW, "%s ( *%s )", Str, Func.Parameter[ Func.ParameterNum ].Name ) ;
 
-								// é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ã®é–¢æ•°ã®å¼•æ•°ã‚’å‡ºåŠ›ã™ã‚‹
+								// ŠÖ”ƒ|ƒCƒ“ƒ^‚ÌŠÖ”‚Ìˆø”‚ğo—Í‚·‚é
 								for(;;)
 								{
 									ttxt.getstr( Str ) ;
@@ -3110,14 +3121,14 @@ CPPOUTONLY:
 							}
 							else
 							{
-								// é–¢æ•°ãƒã‚¤ãƒ³ã‚¿ä»¥å¤–ã®å ´åˆã¯æ™®é€šã®ãƒã‚¤ãƒ³ã‚¿å¼•æ•°ã¨ã—ã¦å‡ºåŠ›
+								// ŠÖ”ƒ|ƒCƒ“ƒ^ˆÈŠO‚Ìê‡‚Í•’Ê‚Ìƒ|ƒCƒ“ƒ^ˆø”‚Æ‚µ‚Äo—Í
 								ttxt.getstr( Func.Parameter[ Func.ParameterNum ].Name ) ;
 								fprintf2( hd, hdW, "%s %s * %s ", Str, Str2, Func.Parameter[ Func.ParameterNum ].Name ) ;
 								fprintf2( sc, scW, "%s %s * %s ", Str, Str2, Func.Parameter[ Func.ParameterNum ].Name ) ;
 							}
 						}
 						else
-						// ãƒã‚¤ãƒ³ã‚¿ã‚„ unsigned int ã®å ´åˆã¯æ™®é€šã«å‡ºåŠ›
+						// ƒ|ƒCƒ“ƒ^‚â unsigned int ‚Ìê‡‚Í•’Ê‚Éo—Í
 						if( Str2[ 0 ] == '*' || strcmp( Str2, "int" ) == 0 )
 						{
 							ttxt.getstr( Func.Parameter[ Func.ParameterNum ].Name ) ;
@@ -3125,7 +3136,7 @@ CPPOUTONLY:
 							fprintf2( sc, scW, "%s %s %s ", Str, Str2, Func.Parameter[ Func.ParameterNum ].Name ) ;
 						}
 						else
-						// ãã‚Œä»¥å¤–ã®å ´åˆã‚‚æ™®é€šã«å‡ºåŠ›
+						// ‚»‚êˆÈŠO‚Ìê‡‚à•’Ê‚Éo—Í
 						{
 							strcpy( Func.Parameter[ Func.ParameterNum ].Name, Str2 ) ;
 							fprintf2( hd, hdW, "%s %s ", Str, Func.Parameter[ Func.ParameterNum ].Name ) ;
@@ -3136,7 +3147,7 @@ CPPOUTONLY:
 						ttxt.getstr( Str ) ;
 						if( Str[ 0 ] == '=' )
 						{
-							// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå¼•æ•°ãŒã‚ã‚‹å ´åˆã¯åŒºåˆ‡ã‚Šæ–‡å­—ãŒã‚ã‚‹ã¾ã§å‡ºåŠ›
+							// ƒfƒtƒHƒ‹ƒgˆø”‚ª‚ ‚éê‡‚Í‹æØ‚è•¶š‚ª‚ ‚é‚Ü‚Åo—Í
 							for(;;)
 							{
 								fprintf2( hd, hdW, "%s ", Str ) ;
@@ -3153,7 +3164,7 @@ CPPOUTONLY:
 							fprintf2( sc, scW, "%s ", Str ) ;
 						}
 
-						// ) ã ã£ãŸã‚‰çµ‚äº†
+						// ) ‚¾‚Á‚½‚çI—¹
 						if( Str[ 0 ] == ')' ) break ;
 						ttxt.getstr( Str ) ;
 					}
@@ -3164,14 +3175,14 @@ CPPOUTONLY:
 			fprintf2( sc, scW, "\n" ) ;
 		}
 
-		// é–¢æ•°ã®ä¸­èº«ã®å‡ºåŠ›
+		// ŠÖ”‚Ì’†g‚Ìo—Í
 		{
 			fprintf2( sc, scW, "{\n" ) ;
 
-			// å¯å¤‰é•·å¼•æ•°ãŒã‚ã‚‹é–¢æ•°ã®å ´åˆã¯ va_start ç­‰ã‚’å‡ºåŠ›ã™ã‚‹
+			// ‰Â•Ï’·ˆø”‚ª‚ ‚éŠÖ”‚Ìê‡‚Í va_start “™‚ğo—Í‚·‚é
 			if( Func.IsVaList )
 			{
-				// æˆ»ã‚Šå€¤ãŒã‚ã‚‹ã‹ã©ã†ã‹ã§å¤‰æ•° Result ã®æœ‰ç„¡ãŒå¤‰åŒ–ã™ã‚‹
+				// –ß‚è’l‚ª‚ ‚é‚©‚Ç‚¤‚©‚Å•Ï” Result ‚Ì—L–³‚ª•Ï‰»‚·‚é
 				if( Func.Void )
 				{
 					fprintf2( sc, scW, "\tva_list VaList;\n" ) ;
@@ -3185,12 +3196,12 @@ CPPOUTONLY:
 					fprintf2( sc, scW, "\tResult = " ) ;
 				}
 
-				// é–¢æ•°åã®å‡ºåŠ›
+				// ŠÖ”–¼‚Ìo—Í
 				fprintf2( sc, scW, "%s_VaList( ", Func.Name );
 			}
 			else
 			{
-				// æˆ»ã‚Šå€¤ã®å‹ãŒ void ä»¥å¤–ã®å ´åˆã¯ return ã‚’ä»˜ã‘ã‚‹
+				// –ß‚è’l‚ÌŒ^‚ª void ˆÈŠO‚Ìê‡‚Í return ‚ğ•t‚¯‚é
 				if( Func.Void )
 				{
 					fprintf2( sc, scW, "\t %s( ", Func.Name ) ;
@@ -3206,12 +3217,12 @@ CPPOUTONLY:
 				Func.Name[ 0 ] = Func.Name[ 0 ] ;
 			}
 
-			// å¼•æ•°ã®å‡ºåŠ›
+			// ˆø”‚Ìo—Í
 			for( i = 0 ; i < Func.ParameterNum ; i ++ )
 			{
 				if( strncmp( Func.Parameter[ i ].Name, "...", 3 ) == 0 )
 				{
-					// å¯å¤‰é•·å¼•æ•°ã®å ´åˆã¯ VaList ã‚’å‡ºåŠ›ã™ã‚‹
+					// ‰Â•Ï’·ˆø”‚Ìê‡‚Í VaList ‚ğo—Í‚·‚é
 					fprintf2( sc, scW, "VaList" );
 				}
 				else
@@ -3226,12 +3237,12 @@ CPPOUTONLY:
 			}
 			fprintf2( sc, scW, " ) ;\n" ) ;
 
-			// å¯å¤‰é•·å¼•æ•°ãŒã‚ã‚‹é–¢æ•°ã®å ´åˆã¯ va_end ç­‰ã‚’å‡ºåŠ›ã™ã‚‹
+			// ‰Â•Ï’·ˆø”‚ª‚ ‚éŠÖ”‚Ìê‡‚Í va_end “™‚ğo—Í‚·‚é
 			if( Func.IsVaList )
 			{
 				fprintf2( sc, scW, "\tva_end( VaList );\n" ) ;
 
-				// æˆ»ã‚Šå€¤ãŒã‚ã‚‹å ´åˆã¯ Result ã‚’è¿”ã™
+				// –ß‚è’l‚ª‚ ‚éê‡‚Í Result ‚ğ•Ô‚·
 				if( Func.Void == FALSE )
 				{
 					fprintf2( sc, scW, "\treturn Result;\n" ) ;
@@ -3244,14 +3255,14 @@ CPPOUTONLY:
 	fprintf2( cs, csW, "\n\n" );
 }
 
-// æ‰‹å‹•é–¢æ•°å®šç¾©ã®å‡ºåŠ›ã‚’æ¥½ã«ã™ã‚‹é–¢æ•°
+// è“®ŠÖ”’è‹`‚Ìo—Í‚ğŠy‚É‚·‚éŠÖ”
 void OutputCSFunctionDefine( FILE *cs, FILE *csW, const char *FuncName, const char *CSRet, const char *CSParamDefine, bool Unsafe )
 {
 	fprintf(  cs,      "\t\t[MethodImplAttribute(MethodImplOptions.InternalCall)]\n" );
 	fprintf2( cs, csW, "\t\textern %sstatic %s %s%s;\n", Unsafe ? "unsafe " : "", CSRet, FuncName, CSParamDefine );
 }
 
-// æ‰‹å‹•é–¢æ•°ã‚³ãƒ¼ãƒ‰ã®å‡ºåŠ›ã‚’æ¥½ã«ã™ã‚‹é–¢æ•°
+// è“®ŠÖ”ƒR[ƒh‚Ìo—Í‚ğŠy‚É‚·‚éŠÖ”
 void OutputCSFunctionCode( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 )
 {
 	fprintf2( cs, csW, "\t\t{\n" );
@@ -3259,37 +3270,37 @@ void OutputCSFunctionCode( FILE *cs, FILE *csW, const char *FuncCode1, const cha
 	fprintf2( cs, csW, "\t\t}\n" );
 }
 
-// æ‰‹å‹•é–¢æ•°ã‚³ãƒ¼ãƒ‰ã®å‡ºåŠ›ã‚’æ¥½ã«ã™ã‚‹é–¢æ•°
+// è“®ŠÖ”ƒR[ƒh‚Ìo—Í‚ğŠy‚É‚·‚éŠÖ”
 void OutputCSFunctionCode2( FILE *cs, FILE *csW, const char *FuncCode1, const char *FuncCode2 )
 {
 	fprintf2( cs, csW, "\t\t\t%s%s;\n", FuncCode1, FuncCode2 );
 }
 
-// mainé–¢æ•°
+// mainŠÖ”
 int main( int argc, char **argv )
 {
 	FILE *hd,  *sc,  *cs,  *def,  *def64;
 	FILE *hdW, *scW, *csW, *defW, *def64W;
 	FILE *monoDef;
 	
-	// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒ 3 ã¤ç„¡ã‹ã£ãŸã‚‰ãƒ˜ãƒ«ãƒ—ã‚’å‡ºåŠ›ã—ã¦çµ‚äº†
+	// ƒpƒ‰ƒ[ƒ^‚ª 3 ‚Â–³‚©‚Á‚½‚çƒwƒ‹ƒv‚ğo—Í‚µ‚ÄI—¹
 	if( argc != 2 )
 	{
 		printf( "MakeDxLibDLLSource.exe DxLibHeaderPath DxFunctionWinHeaderPath DxDirectXHeaderPath\n" );
 		return 1;
 	}
 
-	// DxLib.h ã®èª­ã¿è¾¼ã¿
+	// DxLib.h ‚Ì“Ç‚İ‚İ
 	if( dhtxt.load( argv[1] ) == false )
 	{
-		printf( "DxLib.h ã®ã‚ªãƒ¼ãƒ—ãƒ³ã«å¤±æ•—ã—ã¾ã—ãŸ\n" ) ;
+		printf( "DxLib.h ‚ÌƒI[ƒvƒ“‚É¸”s‚µ‚Ü‚µ‚½\n" ) ;
 		return 1;
 	}
 
-	// æ„å‘³ã®ã‚ã‚‹åŒºåˆ‡ã‚Šã«ã‚¹ãƒšãƒ¼ã‚¹ãŒå…¥ã£ãŸæ–‡å­—åˆ—ã®ä½œæˆ
+	// ˆÓ–¡‚Ì‚ ‚é‹æØ‚è‚ÉƒXƒy[ƒX‚ª“ü‚Á‚½•¶š—ñ‚Ìì¬
 	CreateTokenStr();
 
-	// å‡ºåŠ›å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+	// o—Íæ‚Ìƒtƒ@ƒCƒ‹‚ğŠJ‚­
 	hd     = fopen( "DxDLL.h", "wt" );
 	hdW    = fopen( "DxDLLW.h", "wt" );
 	sc     = fopen( "DxDLL.cpp", "wt" );
@@ -3303,7 +3314,7 @@ int main( int argc, char **argv )
 	monoDef = fopen("DxBindings.cpp", "wt") ;
 
 
-	// å…ˆé ­éƒ¨åˆ†ã®å‡ºåŠ›
+	// æ“ª•”•ª‚Ìo—Í
 	fprintf( def,    "LIBRARY DxLib\n\nEXPORTS\n" ) ;
 	fprintf( defW,   "LIBRARY DxLibW\n\nEXPORTS\n" ) ;
 	fprintf( def64,  "LIBRARY DxLib_x64\n\nEXPORTS\n" ) ;
@@ -3345,23 +3356,23 @@ int main( int argc, char **argv )
 	fprintf( monoDef, "\n");
 	fprintf( monoDef, "extern \"C\" void registerDxLibLibraryMappings() {\n");
 
-	// å®šæ•°å®šç¾©ã‚’ C# ã®ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹
+	// ’è”’è‹`‚ğ C# ‚Ìƒtƒ@ƒCƒ‹‚Éo—Í‚·‚é
 	OutputDefineStr( cs, csW ) ;
 
-	// æ§‹é€ ä½“éƒ¨åˆ†ã‚’å‡ºåŠ›ã™ã‚‹
+	// \‘¢‘Ì•”•ª‚ğo—Í‚·‚é
 	OutputStructStr( cs, csW ) ;
 
-	// é–¢æ•°éƒ¨åˆ†ã‚’å‡ºåŠ›ã™ã‚‹
+	// ŠÖ”•”•ª‚ğo—Í‚·‚é
 	OutputFunctionStr( cs, csW, sc, scW, def, defW, def64, def64W, hd, hdW, monoDef ) ;
 
-	// çµ‚ç«¯éƒ¨åˆ†ã‚’å‡ºåŠ›
+	// I’[•”•ª‚ğo—Í
 	fprintf2( hd, hdW, "}\n" );
 	fprintf2( cs, csW, "\t}\n" );
 	fprintf2( cs, csW, "}\n" );
 	
 	fprintf( monoDef, "}\n");
 
-	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
+	// ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
 	fclose( hd );
 	fclose( hdW );
 	fclose( sc );
@@ -3374,7 +3385,7 @@ int main( int argc, char **argv )
 	fclose( def64W ) ;
 	fclose( monoDef ) ;
 
-	// DxLib.h ã®è§£æ”¾
+	// DxLib.h ‚Ì‰ğ•ú
 	dhtxt.release() ;
 
 	return 0;
