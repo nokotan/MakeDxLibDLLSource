@@ -309,6 +309,13 @@ const char *SkipFunction[] =
 	"Live2D_Model_GetUserDataFile", "Live2D_Model_GetEyeBlinkParameterCount",
 	"Live2D_Model_GetEyeBlinkParameterId", "Live2D_Model_GetLipSyncParameterCount",
 	"Live2D_Model_GetLipSyncParameterId",
+	"DrawObtainsBox", "GetStringPoint",
+	"GetStringLength", "GetStringPoint2",
+	"SetMouseDispFlag", "DrawObtainsString",
+	"DrawObtainsNString", "GetStringPointWithStrLen",
+	"GetStringPoint2WithStrLen", "DrawObtainsString_CharClip",
+	"DrawObtainsNString_CharClip", "GetObtainsStringCharPosition",
+	"GetObtainsStringCharPosition_CharClip",
 	NULL,
 } ;
 
@@ -2863,11 +2870,15 @@ void OutputFunctionStr( FILE *cs, FILE *csW, FILE *sc, FILE *scW, FILE *def, FIL
 				{
 					fprintf2( hd, hdW, "%s %s dx_%s( ", Func.CPPType, calltype, Func.Name );
 					fprintf2( sc, scW, "%s %s dx_%s( ", Func.CPPType, calltype, Func.Name );
+
+					fprintf( monoDef, "\tmono_add_internal_call(\"DX::dx_%s\", (void*)dx_%s );\n", Func.Name, Func.Name );
 				}
 				else
 				{
 					fprintf2( hd, hdW, "%s %s dx_%s_%d( ", Func.CPPType, calltype, Func.Name, funccount );
 					fprintf2( sc, scW, "%s %s dx_%s_%d( ", Func.CPPType, calltype, Func.Name, funccount );
+
+					fprintf( monoDef, "\tmono_add_internal_call(\"DX::dx_%s_%d\", (void*)dx_%s_%d );\n", Func.Name, funccount, Func.Name, funccount );
 				}
 			}
 
@@ -3030,8 +3041,8 @@ CPPOUTONLY:
 			continue;
 		}
 
-		fprintf2( hd, hdW, "%s ", Str ) ;
-		fprintf2( sc, scW, "%s ", Str ) ;
+		fprintf2( hd, hdW, "%s ", Str2 ) ;
+		fprintf2( sc, scW, "%s ", Str2 ) ;
 
 		// ä÷êîñºìoò^Ç™Ç‹ÇæÇæÇ¡ÇΩÇÁä÷êîñºÇìoò^
 		if( funccount == 0x0ccccccc )
@@ -3055,7 +3066,7 @@ CPPOUTONLY:
 			fprintf4( def, defW, def64, def64W, "\t%s\n", Str2 ) ;
 			fprintf2( hd, hdW, "%s %s( ", calltype, Str2 ) ;
 			fprintf2( sc, scW, "%s %s( ", calltype, Str2 ) ;
-			fprintf( monoDef, "\tmono_add_internal_call(\"DX::%s\", (void*)%s );\n", Func.Name, Str2 );
+			fprintf( monoDef, "\tmono_add_internal_call(\"DX::%s\", (void*)%s );\n", Str2, Str2 );
 		}
 
 		// à¯êîÇÃèoóÕ
@@ -3346,8 +3357,6 @@ int main( int argc, char **argv )
 
 	fprintf2( cs, csW, "using System.Runtime.InteropServices;\n" );
 	fprintf2( cs, csW, "using System.Runtime.CompilerServices;\n" );
-	fprintf2( cs, csW, "namespace DxLibDLL\n" );
-	fprintf2( cs, csW, "{\n" );
 	fprintf2( cs, csW, "\tpublic static class DX\n" );
 	fprintf2( cs, csW, "\t{\n" );
 
@@ -3368,7 +3377,6 @@ int main( int argc, char **argv )
 	// èIí[ïîï™ÇèoóÕ
 	fprintf2( hd, hdW, "}\n" );
 	fprintf2( cs, csW, "\t}\n" );
-	fprintf2( cs, csW, "}\n" );
 	
 	fprintf( monoDef, "}\n");
 
